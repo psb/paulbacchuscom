@@ -1,39 +1,23 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Paul Bacchus</title>
-    <meta name="description" content="paulbacchus.com" />
-    <meta name="author" content="Paul Bacchus" />
-  </head>
-  <body>
-    <slot />
-  </body>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Basics</title>
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>
 
 <style>
-  html {
-    background-color: #00adef;
-    font-family:
-      "Office Code Pro", "Source Code Pro", "Consolas", "Inconsolata", "Menlo",
-      "Monaco", "Courier Next", "Courier New", "Courier", monospace;
-    font-size: 1.3rem;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  @media all and (max-width: 599px) and (min-width: 320px) {
-    html {
-      font-size: 1.3em;
-    }
-  }
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
 </style>

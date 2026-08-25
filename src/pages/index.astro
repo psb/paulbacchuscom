@@ -1,21 +1,11 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-  <p>Paul Bacchus (WIP)</p>
-  <p><a href="https://github.com/psb">GitHub</a></p>
-  <p><a href="https://www.linkedin.com/in/paulsbacchus">LinkedIn</a></p>
-  <p><a href="https://dev.to/psb">Dev.to Blog</a></p>
+	<Welcome />
 </Layout>
-
-<style>
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
