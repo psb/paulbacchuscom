@@ -1,13 +1,14 @@
 ---
 import { Font } from "astro:assets";
-import "../styles/global.css";
-import HeaderNav from "../components/HeaderNav.astro";
+// import "../styles/global.css";
+import "../styles/main.css";
+import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="bg-cyan-500">
+<html lang="en">
   <head>
     <Font cssVariable="--font-ibm-plex-sans" />
     <Font cssVariable="--font-nebula-sans" />
@@ -19,11 +20,9 @@ const { title } = Astro.props;
     <link rel="icon" href="/favicon.ico" />
     <title>{title} | Paul Bacchus</title>
   </head>
-  <body class="grid place-items-center m-4 bg-amber-100">
-    <div class="w-full max-w-4xl bg-amber-400">
-      <HeaderNav />
-      <slot />
-      <Footer />
-    </div>
+  <body>
+    <Nav />
+    <slot />
+    <Footer />
   </body>
 </html>

@@ -1,32 +1,31 @@
 ---
-import Link from "../components/Link.astro";
 import Layout from "../layouts/Layout.astro";
 const title = "Home";
 ---
 
 <Layout title={title}>
-  <header class="mx-auto max-w-lg my-4" aria-description="Contact information">
+  <header class="contact">
     <h1>Contact</h1>
     <a href="#main" class="skip">Skip to main content</a>
     <div>
       Email:
-      <Link href="mailto:hello@paulbacchus.com">hello@paulbacchus.com</Link>
+      <a href="mailto:hello@paulbacchus.com">hello@paulbacchus.com</a>
     </div>
     <div>
       X:
-      <Link href="https://x.com/psb_underscore">@psb_underscore</Link>
+      <a href="https://x.com/psb_underscore">@psb_underscore</a>
     </div>
     <div>
       GitHub:
-      <Link href="https://github.com/psb">psb</Link>
+      <a href="https://github.com/psb">psb</a>
     </div>
     <div>
       LinkedIn:
-      <Link href="https://www.linkedin.com/in/paulsbacchus">Paul Bacchus</Link>
+      <a href="https://www.linkedin.com/in/paulsbacchus">Paul Bacchus</a>
     </div>
   </header>
 
-  <main id="main" class="flex justify-center">
+  <main id="main">
     <article></article>
   </main>
 </Layout>

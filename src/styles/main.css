@@ -1,0 +1,91 @@
+@import "sanitize.css";
+
+:root {
+  --cyan-500: oklch(71.5% 0.143 215.221);
+  --font-sans: var(--font-nebula-sans),
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+}
+
+html {
+  background-color: var(--cyan-500);
+  font-size: 16px;
+}
+
+body {
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  font-family: var(--font-sans);
+  max-width: 680px;
+}
+
+a:link,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a.name:link,
+a.name:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1.5px;
+}
+
+a.name:hover {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1.5px;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links>.rss-icon {
+  display: flex;
+  align-items: center;
+}
+
+header.contact {}
+
+img {}
+
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
