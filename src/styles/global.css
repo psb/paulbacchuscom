@@ -1,6 +1,35 @@
 @import "tailwindcss";
 
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+}
+
 @theme {
-    --font-sans: var(--font-nebula-sans), sans-serif;
-    --font-mono: var(--font-jetbrain-mono), mono;
+  --font-sans: var(--font-nebula-sans), sans-serif;
+  --font-mono: var(--font-jetbrain-mono), mono;
+}
+
+/* Skip link */
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
