@@ -16,17 +16,17 @@ export default defineConfig({
         variants: [
           {
             src: ["./src/assets/fonts/IBMPlexSans-Regular.woff2"],
-            weight: "normal",
+            weight: 400,
             style: "normal"
           },
           {
             src: ["./src/assets/fonts/IBMPlexSans-Bold.woff2"],
-            weight: "normal",
+            weight: 700,
             style: "oblique"
           },
           {
             src: ["./src/assets/fonts/IBMPlexSans-Italic.woff2"],
-            weight: "normal",
+            weight: 400,
             style: "italic"
           },
         ]
@@ -40,27 +40,27 @@ export default defineConfig({
         variants: [
           {
             src: ["./src/assets/fonts/NebulaSans-Book.woff2"],
-            weight: "normal",
+            weight: 400,
             style: "normal"
           },
           {
             src: ["./src/assets/fonts/NebulaSans-Bold.woff2"],
-            weight: "normal",
+            weight: 700,
             style: "oblique"
           },
           {
             src: ["./src/assets/fonts/NebulaSans-BookItalic.woff2"],
-            weight: "normal",
+            weight: 400,
             style: "italic"
           },
           {
             src: ["./src/assets/fonts/NebulaSans-Medium.woff2"],
-            weight: "medium",
+            weight: 500,
             style: "normal"
           },
           {
             src: ["./src/assets/fonts/NebulaSans-MediumItalic.woff2"],
-            weight: "medium",
+            weight: 500,
             style: "italic"
           },
         ]
@@ -74,7 +74,7 @@ export default defineConfig({
         variants: [
           {
             src: ["./src/assets/fonts/JetBrainsMono-Regular.woff2"],
-            weight: "normal",
+            weight: 400,
             style: "normal"
           },
         ]

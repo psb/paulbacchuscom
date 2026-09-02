@@ -1,26 +1,51 @@
 ---
-
+import House from "../assets/house-line.svg";
+import Article from "../assets/article.svg";
+import Desktop from "../assets/desktop-tower.svg";
+import RSS from "../assets/rss.svg";
 ---
 
 <nav>
-  <a class="name" href="/">Paul Bacchus</a>
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-    <a href="/projects">Projects</a>
-    <a class="rss-icon" href="/rss.xml">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 16 16"
-        fill="currentColor"
-        width="1.5rem"
-        height="1.5rem"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M2 2.75A.75.75 0 0 1 2.75 2C8.963 2 14 7.037 14 13.25a.75.75 0 0 1-1.5 0c0-5.385-4.365-9.75-9.75-9.75A.75.75 0 0 1 2 2.75Zm0 4.5a.75.75 0 0 1 .75-.75 6.75 6.75 0 0 1 6.75 6.75.75.75 0 0 1-1.5 0C8 10.35 5.65 8 2.75 8A.75.75 0 0 1 2 7.25ZM3.5 11a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"
-          clip-rule="evenodd"></path>
-      </svg>
-    </a>
-  </div>
+  <a href="/">
+    <div><House role="img" aria-labelledby="home" /></div>
+    <div id="home">Home</div>
+  </a>
+  <a href="/blog">
+    <div><Article role="img" aria-labelledby="blog" /></div>
+    <div id="blog">Blog</div>
+  </a>
+  <a href="/projects">
+    <div>
+      <Desktop role="img" aria-labelledby="projects" />
+    </div>
+    <div id="projects">Projects</div>
+  </a>
+  <a href="/rss.xml">
+    <div><RSS role="img" aria-labelledby="rss" /></div>
+    <div id="rss">Subscribe</div>
+  </a>
 </nav>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  a:link,
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.5px;
+  }
+</style>

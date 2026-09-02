@@ -1,31 +1,14 @@
 ---
+import Contact from "../components/Contact.astro";
 import Layout from "../layouts/Layout.astro";
 const title = "Home";
 ---
 
 <Layout title={title}>
-  <header class="contact">
-    <h1>Contact</h1>
-    <a href="#main" class="skip">Skip to main content</a>
-    <div>
-      Email:
-      <a href="mailto:hello@paulbacchus.com">hello@paulbacchus.com</a>
-    </div>
-    <div>
-      X:
-      <a href="https://x.com/psb_underscore">@psb_underscore</a>
-    </div>
-    <div>
-      GitHub:
-      <a href="https://github.com/psb">psb</a>
-    </div>
-    <div>
-      LinkedIn:
-      <a href="https://www.linkedin.com/in/paulsbacchus">Paul Bacchus</a>
-    </div>
-  </header>
-
+  <Contact />
   <main id="main">
-    <article></article>
+    <section>
+      <h1>Blog Posts</h1>
+    </section>
   </main>
 </Layout>
