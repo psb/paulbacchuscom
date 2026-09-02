@@ -25,6 +25,7 @@ body {
   margin-right: auto;
   padding: 1rem;
   font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02", "ss03";
   color: black;
 }
 
