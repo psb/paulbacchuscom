@@ -12,8 +12,7 @@ const { isHome } = Astro.props;
 console.log(isHome);
 ---
 
-<nav class:list={[{ "is-home-page": isHome }]}>
-  <div class="name">Paul Bacchus</div>
+<nav>
   <div class="nav-links">
     <a href="/">
       <div><House role="img" aria-labelledby="home" /></div>
@@ -34,11 +33,15 @@ console.log(isHome);
       <div id="rss">Subscribe</div>
     </a>
   </div>
+  <div class:list={["name", { "is-home-page": isHome }]}>
+    <a href="/">Paul Bacchus</a>
+  </div>
 </nav>
 
 <style>
   nav {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -73,11 +76,7 @@ console.log(isHome);
   }
 
   /* Don't show name on home page */
-  .is-home-page > .name {
-    display: none;
-  }
-
   .is-home-page {
-    flex-direction: row-reverse;
+    display: none;
   }
 </style>
