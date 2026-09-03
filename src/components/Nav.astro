@@ -1,36 +1,57 @@
 ---
-import House from "../assets/house-line.svg";
-import Article from "../assets/article.svg";
-import Desktop from "../assets/desktop-tower.svg";
-import RSS from "../assets/rss.svg";
+import House from "../assets/icons/house-line.svg";
+import Article from "../assets/icons/article.svg";
+import Desktop from "../assets/icons/desktop-tower.svg";
+import RSS from "../assets/icons/rss.svg";
+
+interface Props {
+  isHome: boolean;
+}
+
+const { isHome } = Astro.props;
+console.log(isHome);
 ---
 
-<nav>
-  <a href="/">
-    <div><House role="img" aria-labelledby="home" /></div>
-    <div id="home">Home</div>
-  </a>
-  <a href="/blog">
-    <div><Article role="img" aria-labelledby="blog" /></div>
-    <div id="blog">Blog</div>
-  </a>
-  <a href="/projects">
-    <div>
-      <Desktop role="img" aria-labelledby="projects" />
-    </div>
-    <div id="projects">Projects</div>
-  </a>
-  <a href="/rss.xml">
-    <div><RSS role="img" aria-labelledby="rss" /></div>
-    <div id="rss">Subscribe</div>
-  </a>
+<nav class:list={[{ "is-home-page": isHome }]}>
+  <div class="name">Paul Bacchus</div>
+  <div class="nav-links">
+    <a href="/">
+      <div><House role="img" aria-labelledby="home" /></div>
+      <div id="home">Home</div>
+    </a>
+    <a href="/blog">
+      <div><Article role="img" aria-labelledby="blog" /></div>
+      <div id="blog">Blog</div>
+    </a>
+    <a href="/projects">
+      <div>
+        <Desktop role="img" aria-labelledby="projects" />
+      </div>
+      <div id="projects">Projects</div>
+    </a>
+    <a href="/rss.xml">
+      <div><RSS role="img" aria-labelledby="rss" /></div>
+      <div id="rss">Subscribe</div>
+    </a>
+  </div>
 </nav>
 
 <style>
   nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
     padding: 0 0.25rem;
   }
 
@@ -48,5 +69,15 @@ import RSS from "../assets/rss.svg";
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-thickness: 1.5px;
+    text-decoration-color: var(--cyan-500);
+  }
+
+  /* Don't show name on home page */
+  .is-home-page > .name {
+    display: none;
+  }
+
+  .is-home-page {
+    flex-direction: row-reverse;
   }
 </style>

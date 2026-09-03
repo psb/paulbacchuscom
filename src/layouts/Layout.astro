@@ -4,7 +4,13 @@ import { Font } from "astro:assets";
 import "../styles/main.css";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+}
+
 const { title } = Astro.props;
+const isHome = title === "Home";
 ---
 
 <!doctype html>
@@ -21,7 +27,7 @@ const { title } = Astro.props;
     <title>{title} | Paul Bacchus</title>
   </head>
   <body>
-    <Nav />
+    <Nav isHome={isHome} />
     <slot />
     <Footer />
   </body>
