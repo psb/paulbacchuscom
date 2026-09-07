@@ -44,11 +44,6 @@ export default defineConfig({
             style: "normal"
           },
           {
-            src: ["./src/assets/fonts/NebulaSans-Bold.woff2"],
-            weight: 700,
-            style: "oblique"
-          },
-          {
             src: ["./src/assets/fonts/NebulaSans-BookItalic.woff2"],
             weight: 400,
             style: "italic"
@@ -61,6 +56,36 @@ export default defineConfig({
           {
             src: ["./src/assets/fonts/NebulaSans-MediumItalic.woff2"],
             weight: 500,
+            style: "italic"
+          },
+          {
+            src: ["./src/assets/fonts/NebulaSans-Semibold.woff2"],
+            weight: 600,
+            style: "normal"
+          },
+          {
+            src: ["./src/assets/fonts/NebulaSans-SemiboldItalic.woff2"],
+            weight: 600,
+            style: "italic"
+          },
+          {
+            src: ["./src/assets/fonts/NebulaSans-Bold.woff2"],
+            weight: 700,
+            style: "normal"
+          },
+          {
+            src: ["./src/assets/fonts/NebulaSans-BoldItalic.woff2"],
+            weight: 700,
+            style: "italic"
+          },
+          {
+            src: ["./src/assets/fonts/NebulaSans-Black.woff2"],
+            weight: 900,
+            style: "normal"
+          },
+          {
+            src: ["./src/assets/fonts/NebulaSans-BlackItalic.woff2"],
+            weight: 900,
             style: "italic"
           },
         ]
