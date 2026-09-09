@@ -1,6 +1,6 @@
 ---
 import House from "../assets/icons/house-line.svg";
-import Article from "../assets/icons/article.svg";
+import Article from "../assets/icons/article-ny-times.svg";
 import Desktop from "../assets/icons/desktop-tower.svg";
 import RSS from "../assets/icons/rss.svg";
 
@@ -12,25 +12,28 @@ const { isHome } = Astro.props;
 ---
 
 <nav class:list={[{ "is-home-page": isHome }]}>
-  <div class="name">Paul Bacchus</div>
+  <a class="name" href="/">
+    <div class="long-name">Paul Bacchus</div>
+    <div class="short-name">P Bacchus</div>
+  </a>
   <div class="nav-links">
     <a href="/">
-      <div><House role="img" aria-labelledby="home" /></div>
-      <div id="home">Home</div>
+      <div><House role="img" aria-label="home" /></div>
+      <!-- <div id="home">Home</div> -->
     </a>
-    <a href="/blog">
-      <div><Article role="img" aria-labelledby="blog" /></div>
-      <div id="blog">Blog</div>
+    <a href="/#blog-posts">
+      <div><Article role="img" aria-label="blog" /></div>
+      <!-- <div id="blog">Blog</div> -->
     </a>
-    <a href="/projects">
+    <a href="/#projects">
       <div>
-        <Desktop role="img" aria-labelledby="projects" />
+        <Desktop role="img" aria-label="projects" />
       </div>
-      <div id="projects">Projects</div>
+      <!-- <div id="projects">Projects</div> -->
     </a>
     <a href="/rss.xml">
-      <div><RSS role="img" aria-labelledby="rss" /></div>
-      <div id="rss">Subscribe</div>
+      <div><RSS role="img" aria-label="rss" /></div>
+      <!-- <div id="rss">Subscribe</div> -->
     </a>
   </div>
 </nav>
@@ -45,19 +48,55 @@ const { isHome } = Astro.props;
   }
 
   .name {
-    font-size: 2rem;
-    margin-top: 1rem;
+    font-size: 1.75rem;
+    font-weight: 900;
+    /* margin-top: 1rem; */
   }
 
   .nav-links {
     display: flex;
     width: 50%;
-    justify-content: space-between;
-    margin-top: 1rem;
+    gap: 1rem;
+    justify-content: flex-end;
+    /* justify-content: space-between; */
+    /* margin-top: 1rem; */
+    /* text-align: right; */
+  }
+  .nav-links a:nth-child(1) {
+    background: conic-gradient(cyan, magenta, yellow);
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+  .nav-links a:nth-child(2) {
+    background: conic-gradient(from 90deg, cyan, magenta, yellow);
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+  .nav-links a:nth-child(3) {
+    background: conic-gradient(from 180deg, cyan, magenta, yellow);
+    border-radius: 50%;
+    padding: 0.5rem;
+  }
+  .nav-links a:nth-child(4) {
+    background: conic-gradient(from 270deg, cyan, magenta, yellow);
+    border-radius: 50%;
+    padding: 0.5rem;
   }
 
   a {
-    text-align: center;
+    /* text-align: center; */
+    /* padding: 1rem; */
+    /* background:
+      linear-gradient(white, white) padding-box,
+      linear-gradient(
+          90deg,
+          rgba(255, 0, 0, 1) 0%,
+          rgba(0, 255, 0, 1) 50%,
+          rgba(0, 0, 255, 1) 100%
+        )
+        border-box;
+    border-radius: 50%;
+    border: 4px solid transparent; */
   }
 
   a:link,
@@ -65,13 +104,13 @@ const { isHome } = Astro.props;
     color: black;
     text-decoration: none;
   }
-
+  /* 
   a:hover {
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-thickness: 1.5px;
     text-decoration-color: var(--link-color);
-  }
+  } */
 
   /* Don't show name on home page */
   .is-home-page > .name {
@@ -82,10 +121,21 @@ const { isHome } = Astro.props;
     flex-direction: row-reverse;
   }
 
+  .short-name {
+    display: none;
+  }
+
   @media (max-width: 640px) {
     .name,
     .nav-links {
-      width: 100%;
+      /* width: 100%; */
+    }
+
+    .short-name {
+      display: inline;
+    }
+    .long-name {
+      display: none;
     }
   }
 </style>
