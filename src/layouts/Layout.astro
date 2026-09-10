@@ -2,6 +2,7 @@
 import { Font } from "astro:assets";
 // import "../styles/global.css";
 import "../styles/main.css";
+import SVGDistortionFilter from "../components/SVGDistortionFilter.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
 
@@ -19,6 +20,9 @@ const isHome = title === "Home";
     <Font cssVariable="--font-ibm-plex-sans" />
     <Font cssVariable="--font-nebula-sans" />
     <Font cssVariable="--font-jet-brains-mono" />
+    <Font cssVariable="--font-geist" />
+    <Font cssVariable="--font-geist-mono" />
+    <Font cssVariable="--font-geist-pixel-circle" />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,6 +31,7 @@ const isHome = title === "Home";
     <title>{title} | Paul Bacchus</title>
   </head>
   <body>
+    <SVGDistortionFilter />
     <Nav isHome={isHome} />
     <slot />
     <Footer />

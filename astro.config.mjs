@@ -104,6 +104,62 @@ export default defineConfig({
           },
         ]
       }
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Geist",
+      cssVariable: "--font-geist",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/Geist[wght].woff2"],
+            weight: "400 700 900",
+            style: "normal"
+          },
+        ]
+      }
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Geist",
+      cssVariable: "--font-geist",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/Geist-Italic[wght].woff2"],
+            weight: "400 700 900",
+            style: "italic"
+          },
+        ]
+      }
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Geist",
+      cssVariable: "--font-geist-mono",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/GeistMono-Regular.woff2"],
+            weight: "400",
+            style: "normal"
+          },
+        ]
+      }
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Geist",
+      cssVariable: "--font-geist-pixel-circle",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/GeistPixel-Circle.woff2"],
+            weight: "400",
+            style: "normal"
+          },
+        ]
+      }
     }
   ],
 

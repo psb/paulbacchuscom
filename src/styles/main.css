@@ -11,7 +11,8 @@
   --magenta: rgb(255 0 255);
   --yellow: rgb(255 255 0);
 
-  --font-sans: var(--font-nebula-sans),
+  /* --font-sans: var(--font-nebula-sans), */
+  --font-sans: var(--font-geist),
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono: "SF Mono",
@@ -42,7 +43,8 @@ html {
 body {
   padding: 1rem;
   font-family: var(--font-sans);
-  font-feature-settings: "ss01", "ss02", "ss03";
+  /* font-feature-settings: "ss01", "ss02", "ss03"; */
+  font-feature-settings: "ss02", "ss04", "tnum";
   color: black;
   /* Push footer to bottom. */
   display: grid;

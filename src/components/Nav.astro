@@ -1,6 +1,6 @@
 ---
 import House from "../assets/icons/house.svg";
-import Article from "../assets/icons/article-ny-times.svg";
+import Article from "../assets/icons/text-align-justify.svg";
 import Desktop from "../assets/icons/desktop-tower.svg";
 import RSS from "../assets/icons/rss.svg";
 
@@ -18,11 +18,15 @@ const { isHome } = Astro.props;
   </a>
   <div class="nav-links">
     <a href="/">
-      <div><House role="img" aria-label="home" /></div>
+      <div>
+        <House role="img" aria-label="home" />
+      </div>
       <!-- <div id="home">Home</div> -->
     </a>
     <a href="/#blog-posts">
-      <div><Article role="img" aria-label="blog" /></div>
+      <div>
+        <Article role="img" aria-label="blog" />
+      </div>
       <!-- <div id="blog">Blog</div> -->
     </a>
     <a href="/#projects">
@@ -62,7 +66,7 @@ const { isHome } = Astro.props;
     /* margin-top: 1rem; */
     /* text-align: right; */
   }
-  .nav-links a:nth-child(1) {
+  /* .nav-links a:nth-child(1) {
     background: conic-gradient(cyan, magenta, yellow);
     border-radius: 50%;
     padding: 0.5rem;
@@ -81,7 +85,7 @@ const { isHome } = Astro.props;
     background: conic-gradient(from 270deg, cyan, magenta, yellow);
     border-radius: 50%;
     padding: 0.5rem;
-  }
+  } */
 
   a {
     /* text-align: center; */
