@@ -5,14 +5,19 @@
   --note-color: oklch(66.7% 0.295 322.15);
   --selection-color: oklch(90.5% 0.182 98.111);
   --hr-color: oklch(92.8% 0.006 264.531);
-  --text-background-color: rgb(255 255 255 / 0.9);
+  /* --text-background-color: rgb(255 255 255 / 0.9); */
   /* CMYK */
   --cyan: rgb(0 255 255);
   --magenta: rgb(255 0 255);
   --yellow: rgb(255 255 0);
+  --black: rgb(0 0 0);
 
   /* --font-sans: var(--font-nebula-sans), */
   --font-sans: var(--font-geist),
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  /* --font-sans: var(--font-nebula-sans), */
+  --font-headings: var(--font-caveat), var(--font-geist),
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono: "SF Mono",
@@ -22,18 +27,6 @@
 
 html {
   font-size: 16px;
-  /* background: conic-gradient(from 90deg at 0 0,
-      var(--cyan),
-      var(--magenta),
-      var(--yellow) 90deg); */
-  background: conic-gradient(from 90deg at 0 0,
-      var(--cyan) 30deg,
-      var(--magenta) 30deg 60deg,
-      var(--yellow) 60deg);
-  /* background: conic-gradient(from 90deg at 0 0,
-      var(--cyan) 28deg,
-      var(--magenta) 32deg 60deg,
-      var(--yellow) 64deg); */
 }
 
 ::selection {
@@ -41,37 +34,34 @@ html {
 }
 
 body {
-  padding: 1rem;
   font-family: var(--font-sans);
   /* font-feature-settings: "ss01", "ss02", "ss03"; */
   font-feature-settings: "ss02", "ss04", "tnum";
   color: black;
-  /* Push footer to bottom. */
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 100%;
-  /* fallback height */
-  min-height: 100vh;
-  /* modern height (mobile) */
-  min-height: 100svh;
 }
 
 code {
   font-family: var(--font-mono);
 }
 
-a:link,
-a:visited {
+a {
   color: var(--link-color);
   text-decoration: none;
+
+  &:visited {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.5px;
+  }
 }
 
-a:hover {
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  text-decoration-thickness: 1.5px;
-}
 
+/* Heading styles from Tufte CSS: https://github.com/edwardtufte/tufte-css/blob/gh-pages/tufte.css */
 h1 {
   font-weight: 400;
   margin-top: 4rem;
@@ -81,7 +71,7 @@ h1 {
 }
 
 h2 {
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: 400;
   margin-top: 2.1rem;
   margin-bottom: 1.4rem;
@@ -90,12 +80,18 @@ h2 {
 }
 
 h3 {
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: 400;
   font-size: 1.7rem;
   margin-top: 2rem;
   margin-bottom: 1.4rem;
   line-height: 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-headings);
 }
 
 img {

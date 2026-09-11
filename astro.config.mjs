@@ -116,15 +116,6 @@ export default defineConfig({
             weight: "400 700 900",
             style: "normal"
           },
-        ]
-      }
-    },
-    {
-      provider: fontProviders.local(),
-      name: "Geist",
-      cssVariable: "--font-geist",
-      options: {
-        variants: [
           {
             src: ["./src/assets/fonts/Geist-Italic[wght].woff2"],
             weight: "400 700 900",
@@ -141,7 +132,7 @@ export default defineConfig({
         variants: [
           {
             src: ["./src/assets/fonts/GeistMono-Regular.woff2"],
-            weight: "400",
+            weight: 400,
             style: "normal"
           },
         ]
@@ -155,12 +146,31 @@ export default defineConfig({
         variants: [
           {
             src: ["./src/assets/fonts/GeistPixel-Circle.woff2"],
-            weight: "400",
+            weight: 400,
             style: "normal"
           },
         ]
       }
-    }
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Caveat",
+      cssVariable: "--font-caveat",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/caveat-regular-webfont.woff"],
+            weight: 400,
+            style: "normal"
+          },
+          {
+            src: ["./src/assets/fonts/caveat-bold-webfont.woff"],
+            weight: 700,
+            style: "normal"
+          },
+        ]
+      }
+    },
   ],
 
   // vite: {

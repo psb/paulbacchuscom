@@ -3,143 +3,50 @@ import House from "../assets/icons/house.svg";
 import Article from "../assets/icons/text-align-justify.svg";
 import Desktop from "../assets/icons/desktop-tower.svg";
 import RSS from "../assets/icons/rss.svg";
-
-interface Props {
-  isHome: boolean;
-}
-
-const { isHome } = Astro.props;
 ---
 
-<nav class:list={[{ "is-home-page": isHome }]}>
-  <a class="name" href="/">
-    <div class="long-name">Paul Bacchus</div>
-    <div class="short-name">P Bacchus</div>
+<nav>
+  <a class="home" href="/">
+    <House role="img" aria-label="home" />
   </a>
-  <div class="nav-links">
-    <a href="/">
-      <div>
-        <House role="img" aria-label="home" />
-      </div>
-      <!-- <div id="home">Home</div> -->
-    </a>
-    <a href="/#blog-posts">
-      <div>
-        <Article role="img" aria-label="blog" />
-      </div>
-      <!-- <div id="blog">Blog</div> -->
-    </a>
-    <a href="/#projects">
-      <div>
-        <Desktop role="img" aria-label="projects" />
-      </div>
-      <!-- <div id="projects">Projects</div> -->
-    </a>
-    <a href="/rss.xml">
-      <div><RSS role="img" aria-label="rss" /></div>
-      <!-- <div id="rss">Subscribe</div> -->
-    </a>
-  </div>
+  <a class="blog" href="/blog">
+    <Article role="img" aria-label="blog" />
+  </a>
+  <a class="projects" href="/projects">
+    <Desktop role="img" aria-label="projects" />
+  </a>
+  <a class="rss" href="/rss.xml">
+    <RSS fill="white" role="img" aria-label="rss" />
+  </a>
 </nav>
 
 <style>
   nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-  }
-
-  .name {
-    font-size: 1.75rem;
-    font-weight: 900;
-    /* margin-top: 1rem; */
-  }
-
-  .nav-links {
-    display: flex;
-    width: 50%;
-    gap: 1rem;
     justify-content: flex-end;
-    /* justify-content: space-between; */
-    /* margin-top: 1rem; */
-    /* text-align: right; */
   }
-  /* .nav-links a:nth-child(1) {
-    background: conic-gradient(cyan, magenta, yellow);
-    border-radius: 50%;
-    padding: 0.5rem;
-  }
-  .nav-links a:nth-child(2) {
-    background: conic-gradient(from 90deg, cyan, magenta, yellow);
-    border-radius: 50%;
-    padding: 0.5rem;
-  }
-  .nav-links a:nth-child(3) {
-    background: conic-gradient(from 180deg, cyan, magenta, yellow);
-    border-radius: 50%;
-    padding: 0.5rem;
-  }
-  .nav-links a:nth-child(4) {
-    background: conic-gradient(from 270deg, cyan, magenta, yellow);
-    border-radius: 50%;
-    padding: 0.5rem;
-  } */
 
   a {
-    /* text-align: center; */
-    /* padding: 1rem; */
-    /* background:
-      linear-gradient(white, white) padding-box,
-      linear-gradient(
-          90deg,
-          rgba(255, 0, 0, 1) 0%,
-          rgba(0, 255, 0, 1) 50%,
-          rgba(0, 0, 255, 1) 100%
-        )
-        border-box;
-    border-radius: 50%;
-    border: 4px solid transparent; */
-  }
-
-  a:link,
-  a:visited {
     color: black;
     text-decoration: none;
-  }
-  /* 
-  a:hover {
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 1.5px;
-    text-decoration-color: var(--link-color);
-  } */
-
-  /* Don't show name on home page */
-  .is-home-page > .name {
-    display: none;
-  }
-
-  .is-home-page {
-    flex-direction: row-reverse;
-  }
-
-  .short-name {
-    display: none;
-  }
-
-  @media (max-width: 640px) {
-    .name,
-    .nav-links {
-      /* width: 100%; */
+    &:visited {
+      color: black;
+      text-decoration: none;
     }
+    padding: 1rem;
+  }
 
-    .short-name {
-      display: inline;
-    }
-    .long-name {
-      display: none;
-    }
+  .home {
+    background-color: var(--cyan);
+  }
+  .blog {
+    background-color: var(--magenta);
+  }
+  .projects {
+    background-color: var(--yellow);
+  }
+  .rss {
+    background-color: var(--black);
   }
 </style>

@@ -5,6 +5,7 @@ import "../styles/main.css";
 import SVGDistortionFilter from "../components/SVGDistortionFilter.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
 
 interface Props {
   title: string;
@@ -23,6 +24,7 @@ const isHome = title === "Home";
     <Font cssVariable="--font-geist" />
     <Font cssVariable="--font-geist-mono" />
     <Font cssVariable="--font-geist-pixel-circle" />
+    <Font cssVariable="--font-caveat" />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,8 +34,110 @@ const isHome = title === "Home";
   </head>
   <body>
     <SVGDistortionFilter />
-    <Nav isHome={isHome} />
-    <slot />
-    <Footer />
+    <a href="#main" class="skip">Skip to main content</a>
+    <!-- Main column for content -->
+    <div class="col-center">
+      <Nav />
+      <div class:list={["title", { home: isHome }]}>
+        {isHome ? "Paul Bacchus" : title}
+      </div>
+      <div class="main-area">
+        <Contact />
+        <main id="main">
+          <slot />
+        </main>
+      </div>
+      <Footer />
+    </div>
+    <div class="col-left" aria-hidden="true"></div>
+    <div class="col-right" aria-hidden="true"></div>
   </body>
 </html>
+
+<style>
+  /* Media sizes from Tailwind: https://tailwindcss.com/docs/responsive-design */
+  /* Styles for mobile: (<40rem <640px) */
+  body {
+    display: flex;
+  }
+  .col-center {
+    /* background-color: cyan; */
+    width: 100%;
+    /* To push footer to bottom of page. See footer for margin-top: auto */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* modern height (mobile) */
+    min-height: 100svh;
+  }
+  .col-left {
+    background-color: magenta;
+    display: none;
+  }
+  .col-right {
+    background-color: yellow;
+    display: none;
+  }
+
+  .title {
+    background-color: var(--black);
+    color: white;
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 1rem 0;
+  }
+
+  .main-area {
+    display: flex;
+  }
+
+  #main {
+    padding: 0 1rem;
+    /* width: 100%; */
+  }
+
+  /* Styles for sm: >=40rem (640px) */
+  @media (width >= 40rem) {
+    .title {
+      font-size: 4rem;
+    }
+  }
+
+  /* Styles for md: >=48rem (768px) */
+  @media (width >= 48rem) {
+    .title {
+      font-size: 4.5rem;
+    }
+  }
+
+  /* Styles for lg: >=64rem (1024px) */
+  @media (width >= 64rem) {
+    .title {
+      font-size: 5rem;
+    }
+  }
+
+  /* Styles for xl: >=80rem (1280px) */
+  @media (width >= 80rem) {
+    .col-center {
+      flex: 0 0 1280px;
+      order: 2;
+    }
+    .col-left {
+      display: block;
+      order: 1;
+    }
+    .col-right {
+      display: block;
+      order: 3;
+    }
+
+    .title {
+      font-size: 5rem;
+    }
+  }
+
+  /* Styles for 2xl: >=96rem (1536px) */
+  @media (width >= 96rem) {
+  }
+</style>

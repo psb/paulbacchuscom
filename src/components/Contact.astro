@@ -1,24 +1,35 @@
 ---
-import At from "../assets/icons/at.svg";
+import Email from "../assets/icons/envelope-simple.svg";
 import X from "../assets/icons/x-logo.svg";
 import GitHub from "../assets/icons/github-logo.svg";
 import LinkedIn from "../assets/icons/linkedin-logo.svg";
 ---
 
 <section>
-  <a href="#main" class="skip">Skip to main content</a>
-  <h1>Paul Bacchus</h1>
-  <div class="contact-links">
-    <a href="mailto:hello@paulbacchus.com" aria-label="contact by email">
-      <At role="img" />
+  <div class="contact">
+    <a
+      class="email"
+      href="mailto:hello@paulbacchus.com"
+      aria-label="contact by email"
+    >
+      <Email fill="white" role="img" />
     </a>
-    <a href="https://x.com/psb_underscore" aria-label="contact on x">
+    <a
+      class="twitter"
+      href="https://x.com/psb_underscore"
+      aria-label="contact on x"
+    >
       <X role="img" />
     </a>
-    <a href="https://github.com/psb" aria-label="contact on git hub">
+    <a
+      class="github"
+      href="https://github.com/psb"
+      aria-label="contact on git hub"
+    >
       <GitHub role="img" />
     </a>
     <a
+      class="linkedin"
       href="https://www.linkedin.com/in/paulsbacchus"
       aria-label="contact on linked in"
     >
@@ -28,26 +39,39 @@ import LinkedIn from "../assets/icons/linkedin-logo.svg";
 </section>
 
 <style>
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-  }
-
-  .contact-links {
+  .contact {
     display: flex;
-    gap: 20;
-    padding: 0 0.25rem;
+    flex-direction: column;
+    align-items: center;
   }
 
-  a:link,
-  a:visited {
+  a {
     color: black;
     text-decoration: none;
+    &:visited {
+      color: black;
+      text-decoration: none;
+    }
+    padding: 1rem 0.3rem;
   }
 
-  a:hover {
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 1.5px;
+  .email {
+    background-color: var(--black);
+  }
+  .twitter {
+    background-color: var(--yellow);
+  }
+  .github {
+    background-color: var(--magenta);
+  }
+  .linkedin {
+    background-color: var(--cyan);
+  }
+
+  /* Styles for md: >=48rem (768px) */
+  @media (width >= 48rem) {
+    a {
+      padding: 1rem;
+    }
   }
 </style>

@@ -12,10 +12,27 @@ const thisYear = new Date().getFullYear();
 <style>
   .footer {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    background-color: var(--text-background-color);
-    padding: 0.5rem;
-    border-radius: 0.25rem;
+    background-color: var(--magenta);
+    padding: 0.25rem;
+    /* To push to bottom of page. See Layout also. */
+    margin-top: auto;
+  }
+
+  a {
+    color: var(--black);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1.5px;
+
+    &:visited {
+      color: var(--black);
+    }
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-style: wavy;
+      text-decoration-thickness: 1.5px;
+    }
   }
 </style>
