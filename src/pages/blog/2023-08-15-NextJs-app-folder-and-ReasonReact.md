@@ -1,3 +1,12 @@
+---
+title: "NextJs app folder and ReasonReact"
+description: "Using NextJS app folder with ReasonReact."
+pubDate: "2023-08-15"
+day: 15
+ordinal: "th"
+month: "August"
+year: 2023
+---
 ## _TLDR_
 
 ![VyVyan cricket bat](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jml6mamzjlhhbdula6x7.gif)

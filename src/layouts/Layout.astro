@@ -38,15 +38,19 @@ const isHome = title === "Home";
     <!-- Main column for content -->
     <div class="col-center">
       <Nav />
-      <div class:list={["title", { home: isHome }]}>
-        {isHome ? "Paul Bacchus" : title}
-      </div>
-      <div class="main-area">
-        <Contact />
-        <main id="main">
-          <slot />
-        </main>
-      </div>
+      <main id="main">
+        <h1 class:list={["title", { home: isHome }]}>
+          {isHome ? "Paul Bacchus" : title}
+        </h1>
+        <div class="main-area">
+          <div class="content-wrapper">
+            <slot />
+          </div>
+          <div class="contact-wrapper">
+            <Contact />
+          </div>
+        </div>
+      </main>
       <Footer />
     </div>
     <div class="col-left" aria-hidden="true"></div>
@@ -85,15 +89,26 @@ const isHome = title === "Home";
     font-size: 3rem;
     font-weight: 900;
     padding: 1rem 0;
+    margin: 0;
+    width: 100%;
   }
 
   .main-area {
     display: flex;
+    flex-direction: column;
+    /* min-height: 100vh; */
+    /* modern height (mobile) */
+    /* min-height: 100svh; */
   }
 
   #main {
-    padding: 0 1rem;
-    /* width: 100%; */
+  }
+
+  .contact-wrapper {
+  }
+  .content-wrapper {
+    padding: 1rem;
+    flex: 1;
   }
 
   /* Styles for sm: >=40rem (640px) */
@@ -107,6 +122,19 @@ const isHome = title === "Home";
   @media (width >= 48rem) {
     .title {
       font-size: 4.5rem;
+    }
+
+    .main-area {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .contact-wrapper {
+      /* order: 1; */
+    }
+    .content-wrapper {
+      /* order: 2; */
+      padding: 1rem;
     }
   }
 

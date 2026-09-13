@@ -1,13 +1,76 @@
 ---
+import { getCollection, getEntry } from "astro:content";
+
 import Layout from "../layouts/Layout.astro";
+import RightArrow from "../assets/icons/arrow-right.svg";
 const title = "Home";
+
+const blogPosts = await getCollection("blogPosts");
+const mostRecentBlogPosts = blogPosts
+  .sort((a, b) => b.data.pubDate.localeCompare(a.data.pubDate))
+  .slice(0, 5);
+
+// const moreThanFivePosts = mostRecentBlogPosts.length > 5;
+const moreThanFivePosts = true;
 ---
 
 <Layout title={title}>
   <section>
-    <h1>Recent Blog Posts</h1>
+    <h2>Recent Blog Posts</h2>
+    <ul>
+      {
+        mostRecentBlogPosts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}`}>
+              <div class="post-title">{post.data.title}</div>
+              <div class="post-date">
+                {`${post.data.day}`}
+                <sup>{`${post.data.ordinal}`}</sup>{" "}
+                {`${post.data.month}, ${post.data.year}`}
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    {
+      moreThanFivePosts && (
+        <div>
+          <a class="more" href="/blog">
+            More <RightArrow fill="currentColor" />
+          </a>
+        </div>
+      )
+    }
   </section>
   <section>
-    <h1>Recent Projects</h1>
+    <h2>Recent Projects</h2>
   </section>
 </Layout>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 0.5rem 0;
+  }
+
+  .post-title {
+    font-size: 1.5rem;
+  }
+
+  .post-date {
+    color: var(--grey);
+  }
+
+  .more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-headings);
+    font-size: 2rem;
+  }
+</style>

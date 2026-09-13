@@ -6,6 +6,11 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   site: 'https://www.paulbacchus.com',
   integrations: [mdx()],
+  markdown: {
+    shikiConfig: {
+      theme: "light-plus",
+    },
+  },
 
   fonts: [
     {
