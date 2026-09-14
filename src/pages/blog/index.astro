@@ -1,10 +1,10 @@
 ---
+import BlogPostsList from "../../components/BlogPostsList.astro";
 import Layout from "../../layouts/Layout.astro";
 const title = "Blog";
 ---
 
 <Layout title={title}>
-    <main id="main">
-        <div>Test</div>
-    </main>
+  <h2>All Posts</h2>
+  <BlogPostsList limit={5} />
 </Layout>

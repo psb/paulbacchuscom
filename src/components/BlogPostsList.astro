@@ -1,0 +1,51 @@
+---
+import { getCollection, getEntry } from "astro:content";
+
+interface Props {
+  limit: number;
+}
+
+const { limit } = Astro.props;
+
+const blogPostsColl = await getCollection("blogPosts");
+const sliceEnd = limit === 0 ? blogPostsColl.length : limit;
+const blogPosts = blogPostsColl
+  .sort((a, b) => b.data.pubDate.localeCompare(a.data.pubDate))
+  .slice(0, sliceEnd);
+---
+
+<ul>
+  {
+    blogPosts.map((post) => (
+      <li>
+        <a href={`/blog/${post.id}`}>
+          <div class="post-title">{post.data.title}</div>
+          <div class="post-date">
+            {`${post.data.day}`}
+            <sup>{`${post.data.ordinal}`}</sup>{" "}
+            {`${post.data.month}, ${post.data.year}`}
+          </div>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 0.5rem 0;
+  }
+
+  .post-title {
+    font-size: 1.5rem;
+  }
+
+  .post-date {
+    color: var(--grey);
+  }
+</style>

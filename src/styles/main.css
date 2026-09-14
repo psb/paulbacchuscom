@@ -38,7 +38,7 @@ html {
 body {
   font-family: var(--font-sans);
   /* font-feature-settings: "ss01", "ss02", "ss03"; */
-  font-feature-settings: "ss02", "ss04", "tnum";
+  font-feature-settings: "ss02", "ss04", "ss05", "tnum";
   color: black;
 }
 

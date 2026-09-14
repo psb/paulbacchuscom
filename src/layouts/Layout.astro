@@ -40,17 +40,19 @@ const isHome = title === "Home";
     <div class="col-center">
       <Nav />
       <main id="main">
-        <h1 class:list={["title", { home: isHome }]}>
-          {isHome ? "Paul Bacchus" : title}
-        </h1>
-        <div class="main-area">
-          <div class="content-wrapper">
-            <slot />
+        <article>
+          <h1 class:list={["title", { home: isHome }]}>
+            {isHome ? "Paul Bacchus" : title}
+          </h1>
+          <div class="main-area">
+            <div class="content-wrapper">
+              <slot />
+            </div>
+            <aside class="contact-wrapper">
+              <Contact />
+            </aside>
           </div>
-          <div class="contact-wrapper">
-            <Contact />
-          </div>
-        </div>
+        </article>
       </main>
       <Footer />
     </div>

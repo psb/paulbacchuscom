@@ -1,35 +1,14 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-
 import Layout from "../layouts/Layout.astro";
 import RightArrow from "../assets/icons/arrow-right.svg";
+import BlogPostsList from "../components/BlogPostsList.astro";
 const title = "Home";
-
-const blogPosts = await getCollection("blogPosts");
-const mostRecentBlogPosts = blogPosts
-  .sort((a, b) => b.data.pubDate.localeCompare(a.data.pubDate))
-  .slice(0, 5);
 ---
 
 <Layout title={title}>
   <section>
     <h2>Latest Posts</h2>
-    <ul>
-      {
-        mostRecentBlogPosts.map((post) => (
-          <li>
-            <a href={`/blog/${post.id}`}>
-              <div class="post-title">{post.data.title}</div>
-              <div class="post-date">
-                {`${post.data.day}`}
-                <sup>{`${post.data.ordinal}`}</sup>{" "}
-                {`${post.data.month}, ${post.data.year}`}
-              </div>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <BlogPostsList limit={5} />
 
     <div>
       <a class="more" href="/blog">
@@ -43,23 +22,6 @@ const mostRecentBlogPosts = blogPosts
 </Layout>
 
 <style>
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    padding: 0.5rem 0;
-  }
-
-  .post-title {
-    font-size: 1.5rem;
-  }
-
-  .post-date {
-    color: var(--grey);
-  }
-
   .more {
     display: flex;
     align-items: center;
