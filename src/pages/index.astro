@@ -9,14 +9,11 @@ const blogPosts = await getCollection("blogPosts");
 const mostRecentBlogPosts = blogPosts
   .sort((a, b) => b.data.pubDate.localeCompare(a.data.pubDate))
   .slice(0, 5);
-
-// const moreThanFivePosts = mostRecentBlogPosts.length > 5;
-const moreThanFivePosts = true;
 ---
 
 <Layout title={title}>
   <section>
-    <h2>Recent Blog Posts</h2>
+    <h2>Latest Posts</h2>
     <ul>
       {
         mostRecentBlogPosts.map((post) => (
@@ -33,19 +30,16 @@ const moreThanFivePosts = true;
         ))
       }
     </ul>
-    {
-      moreThanFivePosts && (
-        <div>
-          <a class="more" href="/blog">
-            More <RightArrow fill="currentColor" />
-          </a>
-        </div>
-      )
-    }
+
+    <div>
+      <a class="more" href="/blog">
+        More <RightArrow fill="currentColor" />
+      </a>
+    </div>
   </section>
-  <section>
-    <h2>Recent Projects</h2>
-  </section>
+  <!-- <section>
+    <h2>Latest Projects</h2>
+  </section> -->
 </Layout>
 
 <style>

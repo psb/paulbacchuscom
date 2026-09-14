@@ -176,6 +176,21 @@ export default defineConfig({
         ]
       }
     },
+    {
+      provider: fontProviders.local(),
+      name: "ShantellSans",
+      cssVariable: "--font-shantell",
+      options: {
+        variants: [
+          {
+            src: ["./src/assets/fonts/ShantellSans[BNCE,INFM,SPAC,ital,wght].woff2"],
+            weight: "400 700 900",
+            style: "normal"
+          },
+
+        ]
+      }
+    },
   ],
 
   // vite: {

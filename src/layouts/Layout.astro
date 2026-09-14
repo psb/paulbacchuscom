@@ -25,6 +25,7 @@ const isHome = title === "Home";
     <Font cssVariable="--font-geist-mono" />
     <Font cssVariable="--font-geist-pixel-circle" />
     <Font cssVariable="--font-caveat" />
+    <Font cssVariable="--font-shantell" />
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -105,10 +106,13 @@ const isHome = title === "Home";
   }
 
   .contact-wrapper {
+    display: none;
+    /* See footer component for showing on mobile */
   }
   .content-wrapper {
     padding: 1rem;
     flex: 1;
+    max-width: 750px;
   }
 
   /* Styles for sm: >=40rem (640px) */
@@ -127,13 +131,13 @@ const isHome = title === "Home";
     .main-area {
       display: flex;
       flex-direction: row-reverse;
+      justify-content: space-between;
     }
 
     .contact-wrapper {
-      /* order: 1; */
+      display: block;
     }
     .content-wrapper {
-      /* order: 2; */
       padding: 1rem;
     }
   }
