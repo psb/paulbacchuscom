@@ -18,13 +18,18 @@
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   /* --font-sans: var(--font-nebula-sans), */
-  --font-headings: var(--font-caveat), var(--font-geist),
+  --font-headings: var(--font-geist),
     /* --font-headings: var(--font-shantell), var(--font-geist), */
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono: "SF Mono",
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
+  --font-pixel: var(--font-geist-pixel-circle), var(--font-mono);
+
+  --nebula-font-features: "ss02", "ss03";
+  --geist-font-features: "ss04", "ss05", "tnum";
+  --geist-pixel-font-features: "ss03", "ss04", "ss05", "tnum";
 }
 
 html {
@@ -37,8 +42,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  /* font-feature-settings: "ss02", "ss03"; */
-  font-feature-settings: "ss04", "ss05", "tnum";
+  /* font-feature-settings: var(--nebula-font-features); */
+  font-feature-settings: var(--geist-font-features);
   color: black;
 }
 
