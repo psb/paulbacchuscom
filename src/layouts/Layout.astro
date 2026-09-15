@@ -44,13 +44,8 @@ const isHome = title === "Home";
           <h1 class:list={["title", { home: isHome }]}>
             {isHome ? "Paul Bacchus" : title}
           </h1>
-          <div class="main-area">
-            <div class="content-wrapper">
-              <slot />
-            </div>
-            <aside class="contact-wrapper">
-              <Contact />
-            </aside>
+          <div class="content-wrapper">
+            <slot />
           </div>
         </article>
       </main>
@@ -96,25 +91,10 @@ const isHome = title === "Home";
     width: 100%;
   }
 
-  .main-area {
-    display: flex;
-    flex-direction: column;
-    /* min-height: 100vh; */
-    /* modern height (mobile) */
-    /* min-height: 100svh; */
-  }
-
-  #main {
-  }
-
-  .contact-wrapper {
-    display: none;
-    /* See footer component for showing on mobile */
-  }
   .content-wrapper {
     padding: 1rem;
-    flex: 1;
     max-width: 750px;
+    margin: 0 auto;
   }
 
   /* Styles for sm: >=40rem (640px) */
@@ -130,15 +110,6 @@ const isHome = title === "Home";
       font-size: 4.5rem;
     }
 
-    .main-area {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-    }
-
-    .contact-wrapper {
-      display: block;
-    }
     .content-wrapper {
       padding: 1rem;
     }
