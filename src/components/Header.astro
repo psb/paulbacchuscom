@@ -1,0 +1,128 @@
+---
+import House from "../assets/icons/house-fill.svg";
+import Article from "../assets/icons/text-align-justify-fill.svg";
+import Desktop from "../assets/icons/desktop-fill.svg";
+import RSS from "../assets/icons/rss-fill.svg";
+---
+
+<header>
+  <div class="theme-buttons">
+    <button class="cyan" role="button" aria-label="cyan color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="cyan"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
+    <button class="magenta" role="button" aria-label="magenta color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="magenta"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
+    <button class="yellow" role="button" aria-label="yellow color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="yellow"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
+    <button class="black" role="button" aria-label="black color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="black"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
+  </div>
+  <nav>
+    <a class="home" href="/">
+      <House role="img" aria-label="home" />
+    </a>
+    <a class="blog" href="/blog">
+      <Article role="img" aria-label="blog" />
+    </a>
+    <a class="projects" href="/projects">
+      <Desktop role="img" aria-label="projects" />
+    </a>
+    <a class="rss" href="/rss.xml">
+      <RSS role="img" aria-label="rss" />
+    </a>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .theme-buttons {
+    display: flex;
+    gap: 0.5rem;
+    padding-left: 1rem;
+  }
+
+  button {
+    all: unset;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    &:visited {
+      color: black;
+      text-decoration: none;
+    }
+    padding: 1rem 0.75rem;
+  }
+
+  /* .home {
+    background-color: var(--cyan);
+  }
+  .blog {
+    background-color: var(--magenta);
+  }
+  .projects {
+    background-color: var(--yellow);
+  }
+  .rss {
+    background-color: var(--black);
+  } */
+</style>

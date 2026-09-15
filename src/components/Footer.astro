@@ -3,29 +3,21 @@ import Contact from "./Contact.astro";
 const thisYear = new Date().getFullYear();
 ---
 
-<div class="footer-wrapper">
-  <div class="contact-wrapper">
-    <Contact />
+<div class="footer">
+  <div>
+    &copy; 2023 &ndash; {thisYear} Paul Bacchus
   </div>
-  <div class="footer">
-    <div>
-      &copy; 2023 &ndash; {thisYear} Paul Bacchus
-    </div>
-    <div>Icons from <a href="https://phosphoricons.com">Phosphor</a></div>
-  </div>
+  <Contact />
 </div>
 
 <style>
-  .footer-wrapper {
-    /* To push to bottom of page. See Layout also. */
-    margin-top: auto;
-  }
-
   .footer {
     display: flex;
     justify-content: space-between;
-    background-color: var(--magenta);
+    align-items: center;
     padding: 0.25rem;
+    /* To push to bottom of page. See Layout also. */
+    margin-top: auto;
   }
 
   a {
@@ -42,13 +34,6 @@ const thisYear = new Date().getFullYear();
       text-decoration: underline;
       text-decoration-style: wavy;
       text-decoration-thickness: 1.5px;
-    }
-  }
-
-  /* Styles for md: >=48rem (768px) */
-  @media (width >= 48rem) {
-    .footer-wrapper > .contact-wrapper {
-      display: none;
     }
   }
 </style>

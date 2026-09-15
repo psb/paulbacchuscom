@@ -3,9 +3,8 @@ import { Font } from "astro:assets";
 // import "../styles/global.css";
 import "../styles/main.css";
 import SVGDistortionFilter from "../components/SVGDistortionFilter.astro";
-import Nav from "../components/Nav.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Contact from "../components/Contact.astro";
 
 interface Props {
   title: string;
@@ -38,7 +37,7 @@ const isHome = title === "Home";
     <a href="#main" class="skip">Skip to main content</a>
     <!-- Main column for content -->
     <div class="col-center">
-      <Nav />
+      <Header />
       <main id="main">
         <article>
           <h1 class:list={["title", { home: isHome }]}>
