@@ -8,10 +8,17 @@ interface Props {
 const { limit } = Astro.props;
 
 const blogPostsColl = await getCollection("blogPosts");
-const sliceEnd = limit === 0 ? blogPostsColl.length : limit;
-const blogPosts = blogPostsColl
-  .sort((a, b) => b.data.pubDate.localeCompare(a.data.pubDate))
-  .slice(0, sliceEnd);
+
+let blogPosts;
+if (limit === 0) {
+  blogPosts = blogPostsColl.sort((a, b) =>
+    b.data.pubDate.localeCompare(a.data.pubDate),
+  );
+} else {
+  blogPosts = blogPostsColl
+    .sort((a, b) => b.data.pubDate.localeCompare(a.data.pubDate))
+    .slice(0, limit);
+}
 ---
 
 <ul>
