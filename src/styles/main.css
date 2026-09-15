@@ -92,23 +92,23 @@ a {
   margin-bottom: 1.4rem;
   line-height: 1;
 } */
-h2 {
-  font-weight: 400;
+/* h2 {
+  font-weight: 900;
   margin-top: 4rem;
   margin-bottom: 1.5rem;
   font-size: 3.2rem;
   line-height: 1;
-}
+} */
 
-h3 {
-  font-weight: 400;
+h2 {
+  font-weight: 700;
   margin-top: 2.1rem;
   margin-bottom: 1.4rem;
   font-size: 2.2rem;
   line-height: 1;
 }
 
-h4 {
+h3 {
   font-weight: 400;
   font-size: 1.7rem;
   margin-top: 2rem;
@@ -117,11 +117,11 @@ h4 {
 }
 
 /* h1, */
-h2,
+/* h2,
 h3 {
   font-family: var(--font-headings);
   text-transform: uppercase;
-}
+} */
 
 img {
   max-width: 100%;
