@@ -33,14 +33,14 @@ const isHome = title === "Home";
     <title>{title} | Paul Bacchus</title>
   </head>
   <body>
-    <SVGDistortionFilter />
+    <!-- <SVGDistortionFilter /> -->
     <a href="#main" class="skip">Skip to main content</a>
     <!-- Main column for content -->
     <div class="col-center">
       <Header />
       <main id="main">
         <article>
-          <h1 class="title">
+          <h1 class:list={["title", { home: isHome }]}>
             {isHome ? "Paul Bacchus" : title}
           </h1>
           <div class="main-area">
@@ -88,8 +88,6 @@ const isHome = title === "Home";
     font-size: 3rem;
     font-weight: 900;
     padding: 1rem;
-    margin: 0;
-    width: 100%;
   }
 
   .main-area {
@@ -105,7 +103,7 @@ const isHome = title === "Home";
 
   .vertical-name {
     font-family: var(--font-pixel);
-    font-size: 3rem;
+    /* font-size: 3rem; */
     writing-mode: vertical-lr;
     text-orientation: mixed;
     font-feature-settings: var(--geist-pixel-font-features);
@@ -136,8 +134,8 @@ const isHome = title === "Home";
       font-size: 4.5rem;
     }
 
-    .content-wrapper {
-      padding: 1rem;
+    .vertical-name {
+      font-size: 2rem;
     }
   }
 
@@ -145,6 +143,10 @@ const isHome = title === "Home";
   @media (width >= 64rem) {
     .title {
       font-size: 5rem;
+    }
+
+    .vertical-name {
+      font-size: 3rem;
     }
   }
 
