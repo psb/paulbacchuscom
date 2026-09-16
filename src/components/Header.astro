@@ -3,21 +3,58 @@ import House from "../assets/icons/house-fill.svg";
 import Article from "../assets/icons/text-align-justify-fill.svg";
 import Desktop from "../assets/icons/desktop-fill.svg";
 import RSS from "../assets/icons/rss-fill.svg";
+
+const path = Astro.url.pathname;
+const firstPathSegment = path.split("/")[1];
+
+let location;
+if (firstPathSegment === "") {
+  location = "home";
+} else if (firstPathSegment === "blog") {
+  location = "blog";
+} else if (firstPathSegment === "projects") {
+  location = "projects";
+} else {
+  // Path of /tags has no nav icon and so is set to null
+  location = null;
+}
 ---
 
 <header>
   <nav>
     <a class="no-style home" href="/">
       <House role="img" aria-label="home" />
+      {
+        location === "home" ? (
+          <div class="location">&#9652;</div>
+        ) : (
+          <div class="location" />
+        )
+      }
     </a>
     <a class="no-style blog" href="/blog">
       <Article role="img" aria-label="blog" />
+      {
+        location === "blog" ? (
+          <div class="location">&#9652;</div>
+        ) : (
+          <div class="location" />
+        )
+      }
     </a>
     <a class="no-style projects" href="/projects">
       <Desktop role="img" aria-label="projects" />
+      {
+        location === "projects" ? (
+          <div class="location">&#9652;</div>
+        ) : (
+          <div class="location" />
+        )
+      }
     </a>
     <a class="no-style rss" href="/rss.xml">
       <RSS role="img" aria-label="rss" />
+      <!-- <div class="location"></div> -->
     </a>
   </nav>
   <div class="theme-buttons">
@@ -95,8 +132,15 @@ import RSS from "../assets/icons/rss-fill.svg";
 
   nav {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
     gap: 1rem;
+  }
+
+  nav > a {
+    text-align: center;
+  }
+
+  .location {
+    height: 0.5rem;
+    line-height: 0.5rem;
   }
 </style>
