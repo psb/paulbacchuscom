@@ -4,6 +4,7 @@ import Article from "../assets/icons/text-align-justify-fill.svg";
 import Desktop from "../assets/icons/desktop-fill.svg";
 import RSS from "../assets/icons/rss-fill.svg";
 
+// URL path location marker
 const path = Astro.url.pathname;
 const firstPathSegment = path.split("/")[1];
 
@@ -22,98 +23,87 @@ if (firstPathSegment === "") {
 
 <header>
   <nav>
-    <a class="no-style home" href="/">
+    <a class="no-style" href="/">
       <House role="img" aria-label="home" />
-      {
-        location === "home" ? (
-          <div class="location">&#9652;</div>
-        ) : (
-          <div class="location" />
-        )
-      }
+      {location === "home" && <div class="marker">&#9652;</div>}
     </a>
-    <a class="no-style blog" href="/blog">
+    <a class="no-style" href="/blog">
       <Article role="img" aria-label="blog" />
-      {
-        location === "blog" ? (
-          <div class="location">&#9652;</div>
-        ) : (
-          <div class="location" />
-        )
-      }
+      {location === "blog" && <div class="marker">&#9652;</div>}
     </a>
-    <a class="no-style projects" href="/projects">
+    <a class="no-style" href="/projects">
       <Desktop role="img" aria-label="projects" />
-      {
-        location === "projects" ? (
-          <div class="location">&#9652;</div>
-        ) : (
-          <div class="location" />
-        )
-      }
+      {location === "projects" && <div class="marker">&#9652;</div>}
     </a>
-    <a class="no-style rss" href="/rss.xml">
+    <a class="no-style" href="/rss.xml">
       <RSS role="img" aria-label="rss" />
-      <!-- <div class="location"></div> -->
     </a>
   </nav>
   <div class="theme-buttons">
-    <button class="cyan" role="button" aria-label="cyan color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="cyan"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
-    <button class="magenta" role="button" aria-label="magenta color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="magenta"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
-    <button class="yellow" role="button" aria-label="yellow color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="yellow"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
-    <button class="black" role="button" aria-label="black color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="black"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
+    <div class="theme-button">
+      <button class="cyan" role="button" aria-label="cyan color theme">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="cyan"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div class="theme-button">
+      <button class="magenta" role="button" aria-label="magenta color theme">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="magenta"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div class="theme-button">
+      <button class="yellow" role="button" aria-label="yellow color theme">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="yellow"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div class="theme-button">
+      <button class="black" role="button" aria-label="black color theme">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          fill="black"
+          viewBox="0 0 256 256"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -139,7 +129,15 @@ if (firstPathSegment === "") {
     text-align: center;
   }
 
-  .location {
+  button {
+    all: unset;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .marker {
     height: 0.5rem;
     line-height: 0.5rem;
   }
