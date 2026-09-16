@@ -8,32 +8,36 @@ import RSS from "../assets/icons/rss-fill.svg";
 const path = Astro.url.pathname;
 const firstPathSegment = path.split("/")[1];
 
-let location;
-if (firstPathSegment === "") {
-  location = "home";
-} else if (firstPathSegment === "blog") {
-  location = "blog";
-} else if (firstPathSegment === "projects") {
-  location = "projects";
-} else {
-  // Path of /tags has no nav icon and so is set to null
-  location = null;
-}
+const isPathHome = firstPathSegment === "";
+const isPathBlog = firstPathSegment === "blog";
+const isPathProjects = firstPathSegment === "projects";
+
+// let location;
+// if (firstPathSegment === "") {
+//   location = "home";
+// } else if (firstPathSegment === "blog") {
+//   location = "blog";
+// } else if (firstPathSegment === "projects") {
+//   location = "projects";
+// } else {
+//   // Path of /tags has no nav icon and so is set to null
+//   location = null;
+// }
 ---
 
 <header>
   <nav>
-    <a class="no-style" href="/">
+    <a class:list={["no-style", { marker: isPathHome }]} href="/">
       <House role="img" aria-label="home" />
-      {location === "home" && <div class="marker">&#9652;</div>}
+      <!-- {location === "home" && <div class="marker">&#9652;</div>} -->
     </a>
-    <a class="no-style" href="/blog">
+    <a class:list={["no-style", { marker: isPathBlog }]} href="/blog">
       <Article role="img" aria-label="blog" />
-      {location === "blog" && <div class="marker">&#9652;</div>}
+      <!-- {location === "blog" && <div class="marker">&#9652;</div>} -->
     </a>
-    <a class="no-style" href="/projects">
+    <a class:list={["no-style", { marker: isPathProjects }]} href="/projects">
       <Desktop role="img" aria-label="projects" />
-      {location === "projects" && <div class="marker">&#9652;</div>}
+      <!-- {location === "projects" && <div class="marker">&#9652;</div>} -->
     </a>
     <a class="no-style" href="/rss.xml">
       <RSS role="img" aria-label="rss" />
@@ -138,6 +142,15 @@ if (firstPathSegment === "") {
   }
 
   .marker {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  .marker::after {
+    content: "\25B4";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     height: 0.5rem;
     line-height: 0.5rem;
   }

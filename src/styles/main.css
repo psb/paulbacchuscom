@@ -155,15 +155,6 @@ figure img {
   width: 100%;
 }
 
-
-button {
-  all: unset;
-}
-
-button {
-  cursor: pointer;
-}
-
 hr {
   display: block;
   height: 1px;
