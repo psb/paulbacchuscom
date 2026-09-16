@@ -6,6 +6,20 @@ import RSS from "../assets/icons/rss-fill.svg";
 ---
 
 <header>
+  <nav>
+    <a class="no-style home" href="/">
+      <House role="img" aria-label="home" />
+    </a>
+    <a class="no-style blog" href="/blog">
+      <Article role="img" aria-label="blog" />
+    </a>
+    <a class="no-style projects" href="/projects">
+      <Desktop role="img" aria-label="projects" />
+    </a>
+    <a class="no-style rss" href="/rss.xml">
+      <RSS role="img" aria-label="rss" />
+    </a>
+  </nav>
   <div class="theme-buttons">
     <button class="cyan" role="button" aria-label="cyan color theme">
       <svg
@@ -64,20 +78,6 @@ import RSS from "../assets/icons/rss-fill.svg";
       </svg>
     </button>
   </div>
-  <nav>
-    <a class="home" href="/">
-      <House role="img" aria-label="home" />
-    </a>
-    <a class="blog" href="/blog">
-      <Article role="img" aria-label="blog" />
-    </a>
-    <a class="projects" href="/projects">
-      <Desktop role="img" aria-label="projects" />
-    </a>
-    <a class="rss" href="/rss.xml">
-      <RSS role="img" aria-label="rss" />
-    </a>
-  </nav>
 </header>
 
 <style>
@@ -85,44 +85,18 @@ import RSS from "../assets/icons/rss-fill.svg";
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
   }
 
   .theme-buttons {
     display: flex;
-    gap: 0.5rem;
-    padding-left: 1rem;
-  }
-
-  button {
-    all: unset;
+    gap: 1rem;
   }
 
   nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 1rem;
   }
-
-  a {
-    color: black;
-    text-decoration: none;
-    &:visited {
-      color: black;
-      text-decoration: none;
-    }
-    padding: 1rem 0.75rem;
-  }
-
-  /* .home {
-    background-color: var(--cyan);
-  }
-  .blog {
-    background-color: var(--magenta);
-  }
-  .projects {
-    background-color: var(--yellow);
-  }
-  .rss {
-    background-color: var(--black);
-  } */
 </style>

@@ -39,7 +39,9 @@ const isHome = title === "Home";
     <div class="col-left" aria-hidden="true"></div>
     <!-- Main column for content -->
     <div class="col-center">
-      <Header />
+      <div class="header-wrapper">
+        <Header />
+      </div>
       <main id="main">
         <article>
           <h1 class:list={["title", { home: isHome }]}>
