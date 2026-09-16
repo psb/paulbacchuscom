@@ -35,6 +35,8 @@ const isHome = title === "Home";
   <body>
     <!-- <SVGDistortionFilter /> -->
     <a href="#main" class="skip">Skip to main content</a>
+    <!-- Left column -->
+    <div class="col-left" aria-hidden="true"></div>
     <!-- Main column for content -->
     <div class="col-center">
       <Header />
@@ -55,33 +57,53 @@ const isHome = title === "Home";
       </main>
       <Footer />
     </div>
-    <div class="col-left" aria-hidden="true"></div>
+    <!-- Right column -->
     <div class="col-right" aria-hidden="true"></div>
   </body>
 </html>
 
 <style>
+  /* Skip link */
+  .skip {
+    position: absolute;
+    top: -100px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
   /* Media sizes from Tailwind: https://tailwindcss.com/docs/responsive-design */
   /* Styles for mobile: (<40rem <640px) */
   body {
-    display: flex;
+    /* 1024px */
+    --max-width: 64rem;
+    /* 1280px */
+    /* --max-width: 80rem; */
+
+    display: grid;
+    grid-template-columns: 1fr min(100vw, var(--max-width)) 1fr;
+    grid-template-rows: auto auto 1fr auto;
   }
-  .col-center {
-    width: 100%;
-    /* To push footer to bottom of page. See footer for margin-top: auto */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    /* modern height (mobile) */
-    min-height: 100svh;
-  }
+
   .col-left {
     background-color: magenta;
-    display: none;
+    /* display: none; */
   }
+
+  .col-center {
+    background-color: cyan;
+    /* width: 100%; */
+    /* To push footer to bottom of page. See footer for margin-top: auto */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* min-height: 100vh; */
+    /* modern height (mobile) */
+    /* min-height: 100svh; */
+  }
+
   .col-right {
     background-color: yellow;
-    display: none;
+    /* display: none; */
   }
 
   .title {
