@@ -1,13 +1,46 @@
 ---
-import Contact from "./Contact.astro";
+import Email from "../assets/icons/envelope-simple-fill.svg";
+import X from "../assets/icons/x-logo-fill.svg";
+import GitHub from "../assets/icons/github-logo-fill.svg";
+import LinkedIn from "../assets/icons/linkedin-logo-fill.svg";
+
 const thisYear = new Date().getFullYear();
 ---
 
 <div class="footer">
+  <div class="contact">
+    <a
+      class="no-style"
+      href="mailto:hello@paulbacchus.com"
+      aria-label="contact by email"
+    >
+      <Email role="img" />
+    </a>
+    <a
+      class="no-style"
+      href="https://x.com/psb_underscore"
+      aria-label="contact on x"
+    >
+      <X role="img" />
+    </a>
+    <a
+      class="no-style"
+      href="https://github.com/psb"
+      aria-label="contact on git hub"
+    >
+      <GitHub role="img" />
+    </a>
+    <a
+      class="no-style"
+      href="https://www.linkedin.com/in/paulsbacchus"
+      aria-label="contact on linked in"
+    >
+      <LinkedIn role="img" />
+    </a>
+  </div>
   <div>
     &copy; 2023 &ndash; {thisYear} Paul Bacchus
   </div>
-  <Contact />
 </div>
 
 <style>
@@ -16,25 +49,15 @@ const thisYear = new Date().getFullYear();
     justify-content: space-between;
     align-items: center;
     padding-left: 1rem;
+    padding-right: 1rem;
+
     padding-bottom: 0.25rem;
     /* To push to bottom of page. See Layout also. */
-    margin-top: auto;
+    /* margin-top: auto; */
   }
 
-  a {
-    color: var(--black);
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 1.5px;
-
-    &:visited {
-      color: var(--black);
-    }
-
-    &:hover {
-      text-decoration: underline;
-      text-decoration-style: wavy;
-      text-decoration-thickness: 1.5px;
-    }
+  .contact {
+    display: flex;
+    gap: 1rem;
   }
 </style>
