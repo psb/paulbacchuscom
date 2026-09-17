@@ -7,57 +7,54 @@ import LinkedIn from "../assets/icons/linkedin-logo-fill.svg";
 const thisYear = new Date().getFullYear();
 ---
 
-<div class="footer">
-  <div>
-    &copy; 2023 &ndash; {thisYear} Paul Bacchus
+<footer>
+  <a
+    class="no-style"
+    href="mailto:hello@paulbacchus.com"
+    aria-label="contact by email"
+  >
+    <Email height="1.2rem" width="1.2rem" role="img" />
+  </a>
+  <a
+    class="no-style"
+    href="https://x.com/psb_underscore"
+    aria-label="contact on x"
+  >
+    <X height="1.2rem" width="1.2rem" role="img" />
+  </a>
+  <a
+    class="no-style"
+    href="https://github.com/psb"
+    aria-label="contact on git hub"
+  >
+    <GitHub height="1.2rem" width="1.2rem" role="img" />
+  </a>
+  <a
+    class="no-style"
+    href="https://www.linkedin.com/in/paulsbacchus"
+    aria-label="contact on linked in"
+  >
+    <LinkedIn height="1.2rem" width="1.2rem" role="img" />
+  </a>
+  <div class="copyright">
+    &copy; 2023 &ndash; {thisYear}
+    <span class="copyright-name">Paul Bacchus</span>
   </div>
-  <div class="contact">
-    <a
-      class="no-style"
-      href="mailto:hello@paulbacchus.com"
-      aria-label="contact by email"
-    >
-      <Email role="img" />
-    </a>
-    <a
-      class="no-style"
-      href="https://x.com/psb_underscore"
-      aria-label="contact on x"
-    >
-      <X role="img" />
-    </a>
-    <a
-      class="no-style"
-      href="https://github.com/psb"
-      aria-label="contact on git hub"
-    >
-      <GitHub role="img" />
-    </a>
-    <a
-      class="no-style"
-      href="https://www.linkedin.com/in/paulsbacchus"
-      aria-label="contact on linked in"
-    >
-      <LinkedIn role="img" />
-    </a>
-  </div>
-</div>
+</footer>
 
 <style>
-  .footer {
+  footer {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
-
-    padding-bottom: 0.25rem;
-    /* To push to bottom of page. See Layout also. */
-    /* margin-top: auto; */
+    align-items: end;
+    padding: 1rem;
   }
 
-  .contact {
-    display: flex;
-    gap: 1rem;
+  .copyright {
+    line-height: 1rem;
+  }
+  .copyright-name {
+    writing-mode: sideways-lr;
+    padding-bottom: 1rem;
   }
 </style>
