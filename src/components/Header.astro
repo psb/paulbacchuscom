@@ -44,70 +44,62 @@ const isPathProjects = firstPathSegment === "projects";
     </a>
   </nav>
   <div class="theme-buttons">
-    <div class="theme-button">
-      <button class="cyan" role="button" aria-label="cyan color theme">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="cyan"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-          ></path>
-        </svg>
-      </button>
-    </div>
-    <div class="theme-button">
-      <button class="magenta" role="button" aria-label="magenta color theme">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="magenta"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-          ></path>
-        </svg>
-      </button>
-    </div>
-    <div class="theme-button">
-      <button class="yellow" role="button" aria-label="yellow color theme">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="yellow"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-          ></path>
-        </svg>
-      </button>
-    </div>
-    <div class="theme-button">
-      <button class="black" role="button" aria-label="black color theme">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          fill="black"
-          viewBox="0 0 256 256"
-          aria-hidden="true"
-          focusable="false"
-        >
-          <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-          ></path>
-        </svg>
-      </button>
-    </div>
+    <button data-theme="light" role="button" aria-label="cyan color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="cyan"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
+    <button data-theme="magenta" role="button" aria-label="magenta color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="magenta"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
+    <button data-theme="yellow" role="button" aria-label="yellow color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="yellow"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
+    <button data-theme="dark" role="button" aria-label="dark color theme">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="32"
+        height="32"
+        fill="black"
+        viewBox="0 0 256 256"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
+        ></path>
+      </svg>
+    </button>
   </div>
 </header>
 
@@ -155,3 +147,40 @@ const isPathProjects = firstPathSegment === "projects";
     line-height: 0.5rem;
   }
 </style>
+
+<script>
+  // On window load.
+  window.addEventListener("load", (_event) => {
+    // Check local storage for theme.
+    const themePreference = localStorage.getItem("themePreference");
+    // Get preferred theme.
+    const prefersDarkTheme = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    // Set theme on body.
+    if (themePreference) {
+      document.body.setAttribute("data-theme", themePreference);
+    } else if (prefersDarkTheme) {
+      document.body.setAttribute("data-theme", "dark");
+    } // default light theme = cyan
+  });
+
+  // On built-in browser theme preference change.
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (event) => {
+      if (event.matches) {
+        document.body.setAttribute("data-theme", "dark");
+      }
+    });
+
+  // onClick handler for theme buttons.
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((button) => {
+    // get theme data attribute
+
+    button.addEventListener("click", (_event) => {});
+  });
+
+  // Listener on body for when theme data attribute changes and update theme marker.
+</script>
