@@ -18,7 +18,7 @@
   --color-yellow: oklch(85.2% 0.199 91.936);
   --color-black: rgb(0 0 0);
   /* Relative colors */
-  --color-hr: oklch(from var(--color-cyan) calc(l + 0.15) c h);
+  --color-hr: oklch(from var(--color-cyan) calc(l - 0.10) c h);
   --color-link: var(--color-black);
   /*  */
   --link-thickness: 2px;
