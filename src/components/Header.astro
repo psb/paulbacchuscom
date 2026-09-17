@@ -8,24 +8,29 @@ import RSS from "../assets/icons/rss-fill.svg";
 <header>
   <nav>
     <a class="no-style" href="/">
-      <House height="1rem" width="1rem" role="img" aria-labelledby="home" />
+      <House height="1.2rem" width="1.2rem" role="img" aria-labelledby="home" />
       <span id="home"> home </span>
     </a>
     <a class="no-style" href="/blog">
-      <Article height="1rem" width="1rem" role="img" aria-labelledby="blog" />
+      <Article
+        height="1.2rem"
+        width="1.2rem"
+        role="img"
+        aria-labelledby="blog"
+      />
       <span id="blog"> blog </span>
     </a>
     <a class="no-style" href="/projects">
       <Desktop
-        height="1rem"
-        width="1rem"
+        height="1.2rem"
+        width="1.2rem"
         role="img"
         aria-labelledby="projects"
       />
       <span id="projects"> projects </span>
     </a>
     <a class="no-style" href="/rss.xml">
-      <RSS height="1rem" width="1rem" role="img" aria-labelledby="rss" />
+      <RSS height="1.2rem" width="1.2rem" role="img" aria-labelledby="rss" />
       <span id="rss"> rss feed </span>
     </a>
   </nav>
@@ -45,12 +50,12 @@ import RSS from "../assets/icons/rss-fill.svg";
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     gap: 0.3rem;
   }
 
   a:hover span {
     text-decoration: underline;
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: var(--link-thickness);
   }
 </style>
