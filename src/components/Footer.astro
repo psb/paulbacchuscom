@@ -37,10 +37,7 @@ const thisYear = new Date().getFullYear();
     <LinkedIn height="1.2rem" width="1.2rem" role="img" />
   </a>
   <div class="copyright">
-    &copy; 2023 &ndash; {thisYear}
-    <span class="copyright-name">
-      <a href="/" class="no-style"> Paul Bacchus </a>
-    </span>
+    &copy; 2023 &ndash; {thisYear} Paul Bacchus
   </div>
 </footer>
 
@@ -48,15 +45,17 @@ const thisYear = new Date().getFullYear();
   footer {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
     padding: 1rem;
+    margin-top: 5rem;
   }
 
-  .copyright {
-    line-height: 1rem;
-  }
   .copyright-name {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 0.75rem;
+  }
+  .copyright-name > a {
     writing-mode: sideways-lr;
-    padding-bottom: 1.25rem;
   }
 </style>
