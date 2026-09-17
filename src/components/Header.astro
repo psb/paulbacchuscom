@@ -3,184 +3,48 @@ import House from "../assets/icons/house-fill.svg";
 import Article from "../assets/icons/text-align-justify-fill.svg";
 import Desktop from "../assets/icons/desktop-fill.svg";
 import RSS from "../assets/icons/rss-fill.svg";
-
-// URL path location marker
-const path = Astro.url.pathname;
-const firstPathSegment = path.split("/")[1];
-
-const isPathHome = firstPathSegment === "";
-const isPathBlog = firstPathSegment === "blog";
-const isPathProjects = firstPathSegment === "projects";
-
-// let location;
-// if (firstPathSegment === "") {
-//   location = "home";
-// } else if (firstPathSegment === "blog") {
-//   location = "blog";
-// } else if (firstPathSegment === "projects") {
-//   location = "projects";
-// } else {
-//   // Path of /tags has no nav icon and so is set to null
-//   location = null;
-// }
 ---
 
 <header>
   <nav>
-    <a class:list={["no-style", { marker: isPathHome }]} href="/">
-      <House role="img" aria-label="home" />
-      <!-- {location === "home" && <div class="marker">&#9652;</div>} -->
+    <a class="no-style" href="/">
+      <House height="1rem" role="img" aria-label="home" />
+      home
     </a>
-    <a class:list={["no-style", { marker: isPathBlog }]} href="/blog">
-      <Article role="img" aria-label="blog" />
-      <!-- {location === "blog" && <div class="marker">&#9652;</div>} -->
+    <a class="no-style" href="/blog">
+      <Article height="1rem" role="img" aria-label="blog" />
+      blog
     </a>
-    <a class:list={["no-style", { marker: isPathProjects }]} href="/projects">
-      <Desktop role="img" aria-label="projects" />
-      <!-- {location === "projects" && <div class="marker">&#9652;</div>} -->
+    <a class="no-style" href="/projects">
+      <Desktop height="1rem" role="img" aria-label="projects" />
+      projects
     </a>
     <a class="no-style" href="/rss.xml">
-      <RSS role="img" aria-label="rss" />
+      <RSS height="1rem" role="img" aria-label="rss" />
+      rss feed
     </a>
   </nav>
-  <div class="theme-buttons">
-    <button data-theme="light" role="button" aria-label="cyan color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="cyan"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
-    <button data-theme="magenta" role="button" aria-label="magenta color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="magenta"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
-    <button data-theme="yellow" role="button" aria-label="yellow color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="yellow"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
-    <button data-theme="dark" role="button" aria-label="dark color theme">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="32"
-        height="32"
-        fill="black"
-        viewBox="0 0 256 256"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <path d="M232,128A104,104,0,1,1,128,24,104.13,104.13,0,0,1,232,128Z"
-        ></path>
-      </svg>
-    </button>
-  </div>
 </header>
 
 <style>
   header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem;
-  }
-
-  .theme-buttons {
-    display: flex;
-    gap: 1rem;
   }
 
   nav {
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
   }
 
   nav > a {
-    text-align: center;
-  }
-
-  button {
-    all: unset;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  .marker {
-    position: relative;
-    padding-bottom: 0.5rem;
-  }
-  .marker::after {
-    content: "\25B4";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.5rem;
-    line-height: 0.5rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      border-bottom: 1px solid var(--color-text);
+    }
   }
 </style>
-
-<script>
-  // On window load.
-  window.addEventListener("load", (_event) => {
-    // Check local storage for theme.
-    const themePreference = localStorage.getItem("themePreference");
-    // Get preferred theme.
-    const prefersDarkTheme = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    // Set theme on body.
-    if (themePreference) {
-      document.body.setAttribute("data-theme", themePreference);
-    } else if (prefersDarkTheme) {
-      document.body.setAttribute("data-theme", "dark");
-    } // default light theme = cyan
-  });
-
-  // On built-in browser theme preference change.
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (event) => {
-      if (event.matches) {
-        document.body.setAttribute("data-theme", "dark");
-      }
-    });
-
-  // onClick handler for theme buttons.
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach((button) => {
-    // get theme data attribute
-
-    button.addEventListener("click", (_event) => {});
-  });
-
-  // Listener on body for when theme data attribute changes and update theme marker.
-</script>

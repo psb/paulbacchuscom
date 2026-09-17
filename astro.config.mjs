@@ -118,12 +118,12 @@ export default defineConfig({
         variants: [
           {
             src: ["./src/assets/fonts/Geist[wght].woff2"],
-            weight: "400 700 900",
+            weight: "400 500 700 900",
             style: "normal"
           },
           {
             src: ["./src/assets/fonts/Geist-Italic[wght].woff2"],
-            weight: "400 700 900",
+            weight: "400 500 700 900",
             style: "italic"
           },
         ]
