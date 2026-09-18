@@ -31,17 +31,22 @@ const isHome = title === "Home";
     <!-- <SVGDistortionFilter /> -->
     <a href="#main" class="skip">Skip to main content</a>
     <!-- Left column -->
-    <div class="col-left" aria-hidden="true"></div>
+    <div class="col-left" aria-hidden="true">
+      <div class="col-left-header"></div>
+      <div class="col-left-title"></div>
+      <div class="col-left-content"></div>
+      <div class="col-left-footer"></div>
+    </div>
     <!-- Main column for content -->
     <div class="col-center">
-      <div class="header-wrapper">
-        <Header />
-      </div>
+      <Header />
       <main id="main">
         <article>
+          <!-- <div class="col-center-title"> -->
           <h1 class:list={["title", { home: isHome }]}>
             {isHome ? "Paul Bacchus" : title}
           </h1>
+
           <div class="content-wrapper">
             <slot />
           </div>
@@ -50,7 +55,12 @@ const isHome = title === "Home";
       <Footer />
     </div>
     <!-- Right column -->
-    <div class="col-right" aria-hidden="true"></div>
+    <div class="col-right" aria-hidden="true">
+      <div class="col-right-header"></div>
+      <div class="col-right-title"></div>
+      <div class="col-right-content"></div>
+      <div class="col-right-footer"></div>
+    </div>
   </body>
 </html>
 
@@ -71,31 +81,55 @@ const isHome = title === "Home";
     --max-width: 64rem;
     /* 1280px */
     /* --max-width: 80rem; */
+    height: 100vh;
+    height: 100svh;
 
     display: grid;
     grid-template-columns: 1fr min(100vw, var(--max-width)) 1fr;
     grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "col-left-header col-center-header col-right-header"
+      "col-left-title col-center-title col-right-title"
+      "col-left-content col-center-content col-right-content"
+      "col-left-footer col-center-footer col-right-footer";
   }
 
-  .col-left {
-    background-color: var(--color-magenta);
-    /* display: none; */
-  }
-
+  /* Center column styles */
   .col-center {
-    background-color: var(--color-cyan);
-    /* width: 100%; */
-    /* To push footer to bottom of page. See footer for margin-top: auto */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* min-height: 100vh; */
-    /* modern height (mobile) */
-    /* min-height: 100svh; */
+    display: grid;
+    grid-column: 2/-2;
+    grid-row: 1/-1;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+  .col-center > header {
+    grid-area: col-center-header;
+  }
+  .col-center main {
+    display: grid;
+    grid-row: 2 / 4;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+  .col-center article {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+  }
+  .col-center .title {
+    grid-area: col-center-title;
+  }
+  .col-center .content-wrapper {
+    grid-area: col-center-content;
+  }
+  .col-center > footer {
+    grid-area: col-center-footer;
   }
 
-  .col-right {
-    background-color: var(--color-yellow);
-    /* display: none; */
+  #main {
+    margin-bottom: 5rem;
   }
 
   .title {
@@ -108,6 +142,60 @@ const isHome = title === "Home";
     padding: 1rem;
     max-width: 750px;
     margin: 0 auto;
+  }
+
+  /* Left column styles */
+  .col-left {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1/-1;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    margin-right: 2rem;
+  }
+  .col-left-header {
+    grid-area: col-left-header;
+  }
+  .col-left-title {
+    grid-area: col-left-title;
+    background-color: var(--color-black);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .col-left-content {
+    grid-area: col-left-content;
+  }
+  .col-left-footer {
+    grid-area: col-left-footer;
+    background-color: var(--color-magenta);
+    margin-top: 1rem;
+  }
+
+  /* Right column styles */
+  .col-right {
+    display: grid;
+    grid-column: 3;
+    grid-row: 1/-1;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    padding-left: 2rem;
+  }
+  .col-right-header {
+    grid-area: col-right-header;
+  }
+  .col-right-title {
+    grid-area: col-right-title;
+    background-color: var(--color-black);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .col-right-content {
+    grid-area: col-right-content;
+  }
+  .col-right-footer {
+    grid-area: col-right-footer;
+    background-color: var(--color-yellow);
+    margin-top: 1rem;
   }
 
   /* Styles for sm: >=40rem (640px) */
