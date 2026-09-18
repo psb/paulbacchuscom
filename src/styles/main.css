@@ -1,17 +1,6 @@
 @import "sanitize.css";
 
 :root {
-  --link-color: oklch(71.5% 0.143 215.221);
-  --note-color: oklch(66.7% 0.295 322.15);
-  --selection-color: oklch(90.5% 0.182 98.111);
-  --hr-color: oklch(92.8% 0.006 264.531);
-  --grey: oklch(70.7% 0.022 261.325);
-  /* --text-background-color: rgb(255 255 255 / 0.9); */
-  /* CMYK */
-  --cyan: rgb(0 255 255);
-  --magenta: rgb(255 0 255);
-  --yellow: rgb(255 255 0);
-  --black: rgb(0 0 0);
   /* Base colors */
   --color-cyan: oklch(78.9% 0.154 211.53);
   --color-magenta: oklch(74% 0.238 322.16);
@@ -24,15 +13,16 @@
   --link-thickness: 2px;
 
   /* Fonts */
-  --font-sans: var(--font-nebula-sans),
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: var(--font-inter-variable),
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  --font-mono: "SF Mono",
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+  --font-mono: var(--font-jetbrains-mono-variable),
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 
-  --nebula-font-features: "ss02", "ss03";
+  --font-features-inter: "ss02", "ss03", "cv10";
+  --font-features-mono: "zero", "cv11", "cv12", "ss19";
 
 }
 
@@ -46,13 +36,12 @@ html {
 
 body {
   font-family: var(--font-sans);
-  font-feature-settings: var(--nebula-font-features);
-  /* font-feature-settings: var(--geist-font-features); */
-  /* font-weight: 500; */
+  font-feature-settings: var(--font-features-inter);
 }
 
 code {
   font-family: var(--font-mono);
+  font-feature-settings: var(--font-features-mono);
 }
 
 a {
@@ -153,6 +142,10 @@ img {
 
 figure img {
   width: 100%;
+}
+
+sup {
+  font-feature-settings: "sup";
 }
 
 hr {
