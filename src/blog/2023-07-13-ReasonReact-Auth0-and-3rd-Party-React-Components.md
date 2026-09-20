@@ -6,7 +6,7 @@ day: 13
 ordinal: "th"
 month: "July"
 year: 2023
-coverImage: "../assets/images/2023-07-13/image.png"
+coverImage: "../assets/images/2023-07-13/cover.png"
 coverImageAlt: "Login"
 ---
 One of the ways I like to test a technology is to try and implement something that could be required in a real world app, and authentication is one of those things. I have also been wanting to see how easy it is to use a third-party JS React component with [ReasonReact](https://reasonml.github.io/reason-react/en). So, to kill two birds with one stone I created a simple app that uses the [Auth0](https://auth0.com/) React component. You can view the app [here](https://reason-auth.netlify.app/), and the code is [here](https://github.com/psb/reason-auth).

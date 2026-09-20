@@ -6,7 +6,7 @@ day: 15
 ordinal: "th"
 month: "August"
 year: 2023
-coverImage: "../assets/images/2023-08-15/image.jpg"
+coverImage: "../assets/images/2023-08-15/cover.jpg"
 coverImageAlt: "Computer says no"
 ---
 ## _TLDR_

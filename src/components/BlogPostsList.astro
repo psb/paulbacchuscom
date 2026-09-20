@@ -26,7 +26,7 @@ if (limit === 0) {
   {
     blogPosts.map((post) => (
       <li>
-        <a class="no-style" href={`/blog/${post.id}`}>
+        <a class="no-style card" href={`/blog/${post.id}`}>
           <Image
             src={post.data.coverImage}
             alt={post.data.coverImageAlt}
@@ -64,7 +64,7 @@ if (limit === 0) {
     text-decoration-thickness: var(--link-thickness);
   }
 
-  a {
+  a.card {
     display: flex;
     flex-direction: column;
     height: 100%;

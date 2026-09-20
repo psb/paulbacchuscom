@@ -7,12 +7,27 @@ const title = "Home";
 <Layout title={title}>
   <section>
     <h2>Latest Posts</h2>
-    <BlogPostsList limit={5} />
-    <!-- <div>
-      <a class="more" href="/blog"> More &#8594; </a>
+    <BlogPostsList limit={6} />
+    <!-- <div class="more">
+      <a class="no-style" href="/blog"> More &#10230; </a>
     </div> -->
   </section>
   <!-- <section>
     <h2>Latest Projects</h2>
   </section> -->
 </Layout>
+
+<style>
+  .more {
+    /* display: flex; */
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: right;
+    padding: 1rem 0;
+  }
+
+  .more:hover a {
+    text-decoration: underline;
+    text-decoration-thickness: var(--link-thickness);
+  }
+</style>
