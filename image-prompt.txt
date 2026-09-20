@@ -1,0 +1,4 @@
+Create a posterized version of this image. Remove the background (make it transparent) and use the colours from CMYK (cyan, magenta, yellow, black) for the shading.
+
+Create a posterized version of this image. Use the colours from CMYK (cyan, magenta, yellow, black) for the shading. Anything that is already black or white in colour keep as the same colour that it already is. 
+
