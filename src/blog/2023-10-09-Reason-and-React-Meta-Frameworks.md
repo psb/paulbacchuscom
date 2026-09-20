@@ -6,6 +6,8 @@ day: 9
 ordinal: "th"
 month: "October"
 year: 2023
+coverImage: "../assets/images/2023-10-09/2023-10-09-Reason-and-React-Meta-Frameworks-cover.png"
+coverImageAlt: "Reason and React logos"
 ---
 In [my previous post](https://dev.to/psb/nextjs-the-app-router-and-reasonreact-2c0j) on trying to use the NextJS App Router and Reason I described some of the problems and limitations of their compatibility with one another. With the [release of Melange 2](https://github.com/melange-re/melange/releases/tag/2.0.0) I decided to see if the new features of Melange 2 could help to increase the compatibility of Reason and the NextJS App Router. I have also documented some of the things learnt after trying Melange (v1) with Astro and Remix.
 

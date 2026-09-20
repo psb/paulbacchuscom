@@ -46,7 +46,6 @@ const isHome = title === "Home";
           <h1 class:list={["title", { home: isHome }]}>
             {isHome ? "Paul Bacchus" : title}
           </h1>
-
           <div class="content-wrapper">
             <slot />
           </div>
@@ -139,9 +138,9 @@ const isHome = title === "Home";
   }
 
   .content-wrapper {
-    padding: 1rem;
-    max-width: 750px;
-    margin: 0 auto;
+    padding: 1.1rem;
+    /* max-width: 750px; */
+    /* margin: 0 auto; */
   }
 
   /* Left column styles */
@@ -158,7 +157,6 @@ const isHome = title === "Home";
   }
   .col-left-title {
     grid-area: col-left-title;
-    background-color: var(--color-black);
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
@@ -167,7 +165,6 @@ const isHome = title === "Home";
   }
   .col-left-footer {
     grid-area: col-left-footer;
-    background-color: var(--color-magenta);
     margin-top: 1rem;
   }
 
@@ -185,7 +182,6 @@ const isHome = title === "Home";
   }
   .col-right-title {
     grid-area: col-right-title;
-    background-color: var(--color-black);
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
@@ -194,7 +190,6 @@ const isHome = title === "Home";
   }
   .col-right-footer {
     grid-area: col-right-footer;
-    background-color: var(--color-yellow);
     margin-top: 1rem;
   }
 

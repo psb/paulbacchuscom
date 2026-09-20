@@ -9,6 +9,8 @@
   /* Relative colors */
   --color-hr: oklch(from var(--color-cyan) calc(l - 0.10) c h);
   --color-link: var(--color-black);
+  --color-date-background: var(--color-black);
+  --color-card-background: oklch(from var(--color-cyan) calc(l - 0.025) c h);
   /*  */
   --link-thickness: 2px;
 
@@ -101,7 +103,7 @@ a.no-style {
 } */
 
 h1 {
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
   line-height: 1.2;
 }
