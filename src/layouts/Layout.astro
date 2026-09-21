@@ -132,9 +132,12 @@ const isHome = title === "Home";
   }
 
   .title {
-    font-size: clamp(3rem, 10vw, 7rem);
+    font-size: clamp(3rem, 10vw, 5rem);
     font-weight: 900;
     padding: 1rem;
+  }
+  .title.home {
+    font-size: clamp(3rem, 10vw, 7rem);
   }
 
   .content-wrapper {
