@@ -42,12 +42,12 @@ If you know nothing about OCaml and its ecosystem the [new(ish) docs](https://oc
 
 [Here](https://github.com/psb/reason-react-hn-melange) is a Hacker News app that uses ReasonReact and Tailwind. It is a port of the original app that used BuckleScript. A good exercise for the reader would be to update the app to use the official HN API.
 
-Because Melange outputs JS you can sprinkle Reason and ReasonReact into existing JS apps. [Here](https://github.com/psb/astro-reason) is an example [Astro](https://docs.astro.build/) application that uses ReasonReact components and Reason lambda functions on [Netlify](https://www.netlify.com/). I'll admit that it did take a while to figure out how to get everything setup properly so that everything worked together, but now you don't have to :smile:. Check out the open and closed issues in the repo to see what kind of problems I was having.
+Because Melange outputs JS you can sprinkle Reason and ReasonReact into existing JS apps. [Here](https://github.com/psb/astro-reason) is an example [Astro](https://docs.astro.build/) application that uses ReasonReact components and Reason lambda functions on [Netlify](https://www.netlify.com/). I'll admit that it did take a while to figure out how to get everything setup properly so that everything worked together, but now you don't have to 😁. Check out the open and closed issues in the repo to see what kind of problems I was having.
 
 
 ## Getting help
 
-Hopefully the docs and example apps can get you up and running with Melange, Reason and ReasonReact, but if you need further help then the [Reason Discord channel](https://discord.gg/reasonml) is a great place to get help. I owe thanks to [António Monteiro](https://twitter.com/_anmonteiro), [Javier Chávarri](https://twitter.com/javierwchavarri), [David Sancho](https://twitter.com/davesnx) and [Dimitris Mostrous](https://medium.com/@mostrous) for helping me. Pop in and say hi :wave:. There is also the [Reason forum](https://reasonml.chat/).
+Hopefully the docs and example apps can get you up and running with Melange, Reason and ReasonReact, but if you need further help then the [Reason Discord channel](https://discord.gg/reasonml) is a great place to get help. I owe thanks to [António Monteiro](https://twitter.com/_anmonteiro), [Javier Chávarri](https://twitter.com/javierwchavarri), [David Sancho](https://twitter.com/davesnx) and [Dimitris Mostrous](https://medium.com/@mostrous) for helping me. Pop in and say hi 👋. There is also the [Reason forum](https://reasonml.chat/).
 
 You can get help with OCaml and OCaml tooling in the Reason Discord but there are more OCaml people in the [OCaml Discord channel](https://discord.gg/cCYQbqN) and [OCaml forum](https://discuss.ocaml.org/).
 
