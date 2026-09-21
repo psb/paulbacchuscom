@@ -6,11 +6,12 @@
   --color-magenta: oklch(74% 0.238 322.16);
   --color-yellow: oklch(85.2% 0.199 91.936);
   --color-black: rgb(0 0 0);
-  /* Relative colors */
+  /* Other colors */
   --color-hr: oklch(from var(--color-cyan) calc(l - 0.10) c h);
   --color-link: var(--color-black);
   --color-date-background: var(--color-black);
   --color-card-background: oklch(from var(--color-cyan) calc(l - 0.025) c h);
+  --color-blockquote-border: oklch(86.5% 0.127 207.078);
   /*  */
   --link-thickness: 2px;
 
@@ -110,7 +111,7 @@ h1 {
 
 h2 {
   font-weight: 700;
-  margin-top: 2.1rem;
+  margin-top: 3rem;
   margin-bottom: 1.4rem;
   font-size: 2.2rem;
   line-height: 1.2;
@@ -144,6 +145,12 @@ img {
 
 figure img {
   width: 100%;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0.25rem 2.5rem;
+  border-left: 5px solid var(--color-blockquote-border);
 }
 
 hr {
