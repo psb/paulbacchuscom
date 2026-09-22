@@ -27,10 +27,13 @@
 
   --font-features-inter: "ss02", "ss03", "cv10";
   --font-features-mono: "zero", "cv11", "cv12", "ss19";
+
+  /* Variable font size clamp calculations based on: 
+  https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+  */
 }
 
 html {
-  font-size: 16px;
   background-color: var(--color-cyan);
 }
 
@@ -49,7 +52,9 @@ code {
 }
 
 pre {
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 0.583rem + 1.042vw, 1.25rem);
+  padding: 0.5rem;
+  border-radius: 3px;
 }
 
 /* code that is mixed in with normal text, i.e., not a code block in pre */
@@ -115,6 +120,7 @@ a.no-style {
   line-height: 1;
 } */
 
+/* See Layout.astro for h1 font sizing */
 h1 {
   margin-top: 4rem;
   margin-bottom: 2rem;
@@ -123,20 +129,16 @@ h1 {
 
 h2 {
   font-weight: 700;
-  font-size: clamp(2.2rem, 4vw, 3rem);
-  margin-top: clamp(3rem, 5vw, 4rem);
-  /* font-size: 2.2rem; */
-  /* margin-top: 3rem; */
+  font-size: clamp(1.75rem, 0.5rem + 3.125vw, 2.5rem);
+  margin-top: clamp(2.75rem, 1.5rem + 3.125vw, 3.5rem);
   margin-bottom: 2rem;
   line-height: 1.2;
 }
 
 h3 {
   font-weight: 500;
-  /* font-size: 1.7rem; */
-  /* margin-top: 2rem; */
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  margin-top: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(1.25rem, 0rem + 3.125vw, 2rem);
+  margin-top: clamp(2.25rem, 1rem + 3.125vw, 3rem);
   margin-bottom: 1.75rem;
   line-height: 1.2;
 }
@@ -152,11 +154,11 @@ h6 {
 
 p {
   text-wrap: pretty;
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 0.167rem + 2.083vw, 1.5rem);
 }
 
 li {
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 0.167rem + 2.083vw, 1.5rem);
 }
 
 img {
