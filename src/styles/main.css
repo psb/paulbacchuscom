@@ -166,6 +166,18 @@ img {
   height: auto;
 }
 
+/* images in markdown that are wrapped in p */
+p:has(img) {
+  text-align: center;
+}
+
+p>img {
+  width: min(500px, 100%);
+  margin: 1.5rem 0;
+}
+
+/*  */
+
 figure img {
   width: 100%;
 }

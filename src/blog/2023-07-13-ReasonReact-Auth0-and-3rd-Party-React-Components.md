@@ -126,14 +126,10 @@ export { make };
 /* react Not a pure module */
 ```
 
-![nice](https://media.giphy.com/media/1jkV5ifEE5EENHESRa/giphy.gif)
+![nice](../assets/images/2023-07-13/nice.png)
 
 Bindings can be written as they are needed, and once written completing the Auth0 quick start guide is pretty straight forward.
 
 ## Conclusion
 
 Third-party JS React components can be successfully used in any ReasonReact project. Bindings may look complicated, but once you've written a couple of them you quickly get the hang of it.
-
----
-
-Cover image by [Miguel Á. Padriñán from Pexels](https://www.pexels.com/photo/close-up-shot-of-keyboard-buttons-2882566/)
