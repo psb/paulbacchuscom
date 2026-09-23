@@ -9,6 +9,10 @@ year: 2023
 coverImage: "../assets/images/2023-07-13/cover.png"
 coverImageAlt: "Login"
 ---
+import { Image } from "astro:assets";
+import nice from "../assets/images/2023-07-13/nice.png";
+
+
 One of the ways I like to test a technology is to try and implement something that could be required in a real world app, and authentication is one of those things. I have also been wanting to see how easy it is to use a third-party JS React component with [ReasonReact](https://reasonml.github.io/reason-react/en). So, to kill two birds with one stone I created a simple app that uses the [Auth0](https://auth0.com/) React component. You can view the app [here](https://reason-auth.netlify.app/), and the code is [here](https://github.com/psb/reason-auth).
 
 ## Using the `Auth0Provider` component
@@ -126,7 +130,10 @@ export { make };
 /* react Not a pure module */
 ```
 
-![nice](../assets/images/2023-07-13/nice.png)
+<div class="article-image">
+<Image src={nice} alt="" layout="constrained" width={500}/>
+</div>
+
 
 Bindings can be written as they are needed, and once written completing the Auth0 quick start guide is pretty straight forward.
 

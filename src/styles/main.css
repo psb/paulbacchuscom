@@ -26,7 +26,7 @@
     monospace;
 
   --font-features-inter: "ss02", "ss03", "cv10";
-  --font-features-mono: "zero", "cv11", "cv12", "calt" 0;
+  --font-features-mono: "zero", "cv11", "cv12", "calt" 0, "liga" 0;
 
   /* Variable font size clamp calculations based on: 
   https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
@@ -166,21 +166,47 @@ img {
   height: auto;
 }
 
+/* images and figures in articles */
+.article-image {
+  text-align: center;
+  margin: clamp(2.25rem, 1rem + 3.125vw, 3rem) 0;
+}
+
+.article-image img {
+  border-radius: 3px;
+}
+
 /* images in markdown that are wrapped in p */
-p:has(img) {
+/* p:has(img) {
   text-align: center;
 }
 
 p>img {
   width: min(500px, 100%);
   margin: 1.5rem 0;
+  border-radius: 3px;
+} */
+
+/* figure in mdx */
+/* figure {
+  margin: 1.5rem 0;
+}
+
+figure:has(img) {
+  text-align: center;
+}
+
+figure>img {
+  width: min(750px, 100%);
+  border-radius: 3px;
+} */
+
+figcaption {
+  padding: 1rem 0;
+  font-style: italic;
 }
 
 /*  */
-
-figure img {
-  width: 100%;
-}
 
 blockquote {
   margin: 0;

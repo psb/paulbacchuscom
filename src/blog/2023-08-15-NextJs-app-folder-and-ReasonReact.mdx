@@ -9,9 +9,12 @@ year: 2023
 coverImage: "../assets/images/2023-08-15/cover.jpg"
 coverImageAlt: "Computer says no"
 ---
-## _TLDR_
+import { Image } from "astro:assets";
+import buildOutput from "../assets/images/2023-08-15/reason-files-to-js-files.png";
+import dune from "../assets/images/2023-08-15/dune-files-everywhere.webp";
+import gopher from "../assets/images/2023-08-15/gopher.png";
+import outputInSrc from "../assets/images/2023-08-15/output-in-src.webp";
 
-![VyVyan cricket bat](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jml6mamzjlhhbdula6x7.gif)
 
 After creating a [demo application](https://github.com/psb/astro-reason) with Astro and ReasonReact I thought I would try and recreate the app using NextJS and the App Router. In the Astro app components were written using ReasonReact and then imported into an Astro file from the output JS files created by Melange. This time I wanted to try and use no JS at all and write the whole thing in Reason. The code can be found [here](https://github.com/psb/nextjs-approuter-reason).
 
@@ -42,7 +45,12 @@ For the NextJS app to work properly from the `_build` directory, files and folde
 
 This effectively replicates the standard app directory structure in the `_build` folder, and on compilation the Reason files will be compiled to JS files:
 
-![build folder structure](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w6koi710tq2jy3ai7ypy.png)
+<div class="article-image">
+<figure>
+<Image src={buildOutput} alt="build folder structure" layout="constrained" width={750}/>
+<figcaption>Left: Reason folder structure. Right: JS output folder structure in the `_build` directory</figcaption>
+</figure>
+</div>
 
 To run the app from the root directory the commands in `package.json` have to be updated, e.g., `"cd _build/default/nextjs && next dev"`.
 
@@ -62,13 +70,17 @@ In the image above you can see that there are a lot of `dune` files. The `dune` 
 Every subfolder of `api/` is a route, e.g., `api/joke/`, and requires its own `dune` file, which is then referenced in the `api/dune` file.
 Writing a `dune` file for each route (and page) is not hard, but it could get tedious really quickly if there are a lot of them.
 
-![dune files everywhere](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7bi9gl402i87xlean1lu.jpeg)
+<div class="article-image">
+<Image src={dune} alt="dune files everywhere" layout="constrained" width={600}/>
+</div>
 
 One way to get around this is to modify the `api/dune` file with `(include_subdirs qualified)`; this means that every subdirectory of `api/` can be referenced by module namespacing and we don't have to write `dune` files for every route (or pages) folder. However, the [OCaml LSP does not like it](https://github.com/ocaml/dune/issues/8297) and red squiggles will show up in the editor (although the app with still compile without errors). Trying to develop the app knowing those red squiggles cannot be vanquished would drive me nuts, so instead of using `(include_subdirs qualified)` I just wrote `dune` files for every route (and page) which gets rid of the red squiggles.
 
 Dune and the NextJS dev server are completely fine with this application and directory structure, and everything works during development; but when trying to build the app NextJS turns cantankerous.
 
-![shocked gopher](https://media.giphy.com/media/XhcSIUIkgbmuY/giphy.gif)
+<div class="article-image">
+<Image src={gopher} alt="" layout="constrained" width={400}/>
+</div>
 
 ## [Computer Says No](https://www.youtube.com/watch?v=x0YGZPycMEU)
 
@@ -166,7 +178,12 @@ Once again NextJS does not like the extra export fields. Using an interface file
 
 To stop `next build` from slapping us with type errors we have to wrap the Reason code with JavaScript, which means creating `page.js` and `route.js` files and importing the Reason code (the output JS code) into them. This is now a situation that is similar to the Astro project, and so now, rather than having many folders and many `dune` files, all of the Reason code can be put into one folder. Because of this it also makes sense to promote the output JavaScript out of the `_build` folder and back into the `src` folder, which means that project files no longer have to be copied to the `_build` folder.
 
-![Refactored folder structure](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yoqls5wu1q7xhmqx0x6t.png)
+<div class="article-image">
+<figure>
+<Image src={outputInSrc} alt="JS output code is promoted back into the src folder" layout="constrained" width={500}/>
+<figcaption>Transpiled JS output code is promoted back into the `src` folder</figcaption>
+</figure>
+</div>
 
 ### Directives and bindings
 
@@ -200,4 +217,4 @@ The refactored code is the code in the main branch. The all Reason code version 
 
 ## Conclusion
 
-Replacing all of the JavaScript in a NextJS App Router application with Reason is currently not possible. Reason can be used for the majority of the code but it will need to be wrapped in JS for it to be compatible with NextJS. I'm not sure why NextJS is so strict on what fields are exported. As long the fields NextJS needs are exported I don't see why other export fields are a problem, especially since they cause no problem during development. I also wish these problems would have showed up sooner during development instead of during building. There may be some Dune or NextJS configuration options that I have missed, but at this point I'm too tired and [bored](https://www.youtube.com/watch?v=0VH-tJSpkjA) to try and figure it out.
+Replacing all of the JavaScript in a NextJS App Router application with Reason is currently not possible. Reason can be used for the majority of the code but it will need to be wrapped in JS for it to be compatible with NextJS. I'm not sure why NextJS is so strict on what fields are exported. As long the fields NextJS needs are exported I don't see why other export fields are a problem, especially since they cause no problem during development. I also wish these problems would have showed up sooner during development instead of during building. There may be some Dune or NextJS configuration options that I have missed, but at this point I'm too tired and bored to try and figure it out.
