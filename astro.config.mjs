@@ -1,14 +1,16 @@
 // @ts-check
-import { defineConfig, fontProviders } from 'astro/config';
-import mdx from '@astrojs/mdx';
+import { defineConfig, fontProviders } from "astro/config";
+import mdx from "@astrojs/mdx";
+import { transformerNotationHighlight, transformerNotationWordHighlight } from "@shikijs/transformers";
 // import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: 'https://www.paulbacchus.com',
+  site: "https://www.paulbacchus.com",
   integrations: [mdx()],
   markdown: {
     shikiConfig: {
       theme: "light-plus",
+      transformers: [transformerNotationHighlight(), transformerNotationWordHighlight()]
     },
   },
 

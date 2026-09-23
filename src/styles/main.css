@@ -57,6 +57,15 @@ pre {
   border-radius: 3px;
 }
 
+/* code blocks that have shiki highlighting transformers applied */
+pre.has-highlighted .line.highlighted {
+  color: var(--color-magenta);
+}
+
+pre .highlighted-word {
+  color: var(--color-magenta);
+}
+
 /* code that is mixed in with normal text, i.e., not a code block in pre */
 :not(pre)>code {
   background-color: var(--color-non-pre-code);
@@ -176,37 +185,10 @@ img {
   border-radius: 3px;
 }
 
-/* images in markdown that are wrapped in p */
-/* p:has(img) {
-  text-align: center;
-}
-
-p>img {
-  width: min(500px, 100%);
-  margin: 1.5rem 0;
-  border-radius: 3px;
-} */
-
-/* figure in mdx */
-/* figure {
-  margin: 1.5rem 0;
-}
-
-figure:has(img) {
-  text-align: center;
-}
-
-figure>img {
-  width: min(750px, 100%);
-  border-radius: 3px;
-} */
-
 figcaption {
   padding: 1rem 0;
   font-style: italic;
 }
-
-/*  */
 
 blockquote {
   margin: 0;
@@ -223,10 +205,3 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
-
-/* 
-@media (max-width: 760px) {
-  label {
-    cursor: pointer;
-  }
-} */
