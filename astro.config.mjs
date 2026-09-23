@@ -34,20 +34,6 @@ export default defineConfig({
     },
     {
       provider: fontProviders.local(),
-      name: "JetBrainsMonoVariable",
-      cssVariable: "--font-jetbrains-mono-variable",
-      options: {
-        variants: [
-          {
-            src: ["./src/assets/fonts/JetBrainsMono[wght].ttf"],
-            weight: "400 500 600 700 800 900",
-            style: "normal"
-          },
-        ]
-      }
-    },
-    {
-      provider: fontProviders.local(),
       name: "JetBrainsMonoRegular",
       cssVariable: "--font-jetbrains-mono-regular",
       options: {
@@ -60,7 +46,6 @@ export default defineConfig({
         ]
       }
     },
-
   ],
 
   // vite: {
