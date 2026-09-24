@@ -2,15 +2,25 @@
 import { defineConfig, fontProviders } from "astro/config";
 import mdx from "@astrojs/mdx";
 import { transformerNotationHighlight, transformerNotationWordHighlight } from "@shikijs/transformers";
-// import tailwindcss from "@tailwindcss/vite";
+import alabaster from "./alabaster-color-theme.json";
+import reasonGrammar from "./reason.json";
 
 export default defineConfig({
   site: "https://www.paulbacchus.com",
   integrations: [mdx()],
   markdown: {
     shikiConfig: {
-      theme: "light-plus",
-      transformers: [transformerNotationHighlight(), transformerNotationWordHighlight()]
+      theme: alabaster,
+      transformers: [transformerNotationHighlight(), transformerNotationWordHighlight()],
+      langs: [
+        // @ts-ignore
+        {
+          ...reasonGrammar,
+          name: "reason",
+          scopeName: "source.reason",
+          aliases: ["re", "rei", "reasonml"],
+        },
+      ]
     },
   },
 
@@ -49,8 +59,4 @@ export default defineConfig({
       }
     },
   ],
-
-  // vite: {
-  //   plugins: [tailwindcss()],
-  // },
 });
