@@ -12,6 +12,8 @@ interface Props {
 
 const { title } = Astro.props;
 const isHome = title === "Home";
+const isNotFound = title === "404";
+const xlFont = title === "Home" || title === "404";
 ---
 
 <!doctype html>
@@ -41,8 +43,13 @@ const isHome = title === "Home";
       <Header />
       <main id="main">
         <article>
-          <!-- <div class="col-center-title"> -->
-          <h1 class:list={["title", { home: isHome }]}>
+          <h1
+            class:list={[
+              "title",
+              { "xl-font": xlFont },
+              { "not-found": isNotFound },
+            ]}
+          >
             {isHome ? "Paul Bacchus" : title}
           </h1>
           <div class="content-wrapper">
@@ -135,8 +142,11 @@ const isHome = title === "Home";
     font-weight: 900;
     padding: 1rem;
   }
-  .title.home {
+  .title.xl-font {
     font-size: clamp(3rem, -3.667rem + 16.667vw, 7rem);
+  }
+  .title.not-found {
+    text-align: center;
   }
 
   .content-wrapper {
