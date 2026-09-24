@@ -207,15 +207,15 @@ A typical TypeScript NextJS App Router application will be structured something 
 ```
 ├── README.md
 ├── app/
-│   ├── api/
-│   │   └── joke/
-│   │       └── route.ts
-│   ├── jokes/
-│   │   └── page.tsx
-│   ├── favicon.ico
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
+│   ├── api/
+│   │   └── joke/
+│   │       └── route.ts
+│   ├── jokes/
+│   │   └── page.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
 ├── next-env.d.ts
 ├── next.config.js
 ├── node_modules/
@@ -233,25 +233,25 @@ We can then convert it to a Reason application:
 ├── README.md
 // [!code word:reason_app/:1]
 ├── reason_app/
-│   ├── api/
-│   │   └── joke/
+│   ├── api/
+│   │   └── joke/
 // [!code word:dune:1]
-│   │       ├── dune
+│   │       ├── dune
 // [!code word:route.re:1]
-│   │       └── route.re
-│   ├── jokes/
+│   │       └── route.re
+│   ├── jokes/
 // [!code word:dune:1]
-│   │   ├── dune
+│   │   ├── dune
 // [!code word:page.re:1]
-│   │   ├── page.re
+│   │   ├── page.re
 // [!code word:page.rei:1]
-│   │   └── page.rei
-│   ├── favicon.ico
-│   ├── globals.css
-│   ├── layout.tsx
-│   ├── page.tsx
+│   │   └── page.rei
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── page.tsx
 // [!code word:dune:1]
-│   └── dune
+│   └── dune
 ├── next-env.d.ts
 ├── next.config.js
 ├── node_modules/
@@ -293,15 +293,15 @@ We can then add a `reason_bindings` folder at the root level for any bindings we
 ```
 ./_build/default/output/
 ├── reason_app/
-│   ├── api/
-│   │   └── joke/
-│   │       └── route.js
-│   ├── jokes/
-│   │   └── page.js
-│   ├── favicon.ico
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
+│   ├── api/
+│   │   └── joke/
+│   │       └── route.js
+│   ├── jokes/
+│   │   └── page.js
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
 ├── reason_bindings/
 └── node_modules/
 ```
@@ -446,4 +446,4 @@ Melange 2 and the capabilities of Dune allow Reason and ReasonReact to work very
 
 ---
 
-Thank you to [Javier Chávarri](https://twitter.com/javierwchavarri) for the help with Dune.
+Thank you to [Javier Chávarri](https://x.com/javierwchavarri) for the help with Dune.
