@@ -175,13 +175,13 @@ img {
   height: auto;
 }
 
-/* images and figures in articles */
-.article-image {
+/* images and figures in markdown files */
+.markdown-image {
   text-align: center;
   margin: clamp(2.25rem, 1rem + 3.125vw, 3rem) 0;
 }
 
-.article-image img {
+.markdown-image img {
   border-radius: 3px;
 }
 

@@ -68,7 +68,7 @@ In the image above you can see that there are a lot of `dune` files. The `dune` 
 Every subfolder of `api/` is a route, e.g., `api/joke/`, and requires its own `dune` file, which is then referenced in the `api/dune` file.
 Writing a `dune` file for each route (and page) is not hard, but it could get tedious really quickly if there are a lot of them.
 
-<div class="article-image">
+<div class="markdown-image">
 <Image src={dune} alt="dune files everywhere" layout="constrained" width={600}/>
 </div>
 
@@ -76,7 +76,7 @@ One way to get around this is to modify the `api/dune` file with `(include_subdi
 
 Dune and the NextJS dev server are completely fine with this application and directory structure, and everything works during development; but when trying to build the app NextJS turns cantankerous.
 
-<div class="article-image">
+<div class="markdown-image">
 <Image src={gopher} alt="" layout="constrained" width={400}/>
 </div>
 
