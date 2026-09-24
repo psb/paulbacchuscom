@@ -200,6 +200,7 @@ figcaption {
   contain: inline-size;
   background-color: var(--color-card-background);
   border-radius: 0 0 3px 3px;
+  font-size: clamp(0.8rem, 0.467rem + 0.833vw, 1rem);
 }
 
 blockquote {
