@@ -45,12 +45,10 @@ For the NextJS app to work properly from the `_build` directory, files and folde
 
 This effectively replicates the standard app directory structure in the `_build` folder, and on compilation the Reason files will be compiled to JS files:
 
-<div class="article-image">
 <figure>
 <Image src={buildOutput} alt="build folder structure" layout="constrained" width={750}/>
-<figcaption>Left: Reason folder structure. Right: JS output folder structure in the `_build` directory</figcaption>
+<figcaption>Left: Reason folder structure. Right: JS output folder structure in the `_build` directory.</figcaption>
 </figure>
-</div>
 
 To run the app from the root directory the commands in `package.json` have to be updated, e.g., `"cd _build/default/nextjs && next dev"`.
 
@@ -178,12 +176,10 @@ Once again NextJS does not like the extra export fields. Using an interface file
 
 To stop `next build` from slapping us with type errors we have to wrap the Reason code with JavaScript, which means creating `page.js` and `route.js` files and importing the Reason code (the output JS code) into them. This is now a situation that is similar to the Astro project, and so now, rather than having many folders and many `dune` files, all of the Reason code can be put into one folder. Because of this it also makes sense to promote the output JavaScript out of the `_build` folder and back into the `src` folder, which means that project files no longer have to be copied to the `_build` folder.
 
-<div class="article-image">
 <figure>
 <Image src={outputInSrc} alt="JS output code is promoted back into the src folder" layout="constrained" width={500}/>
-<figcaption>Transpiled JS output code is promoted back into the `src` folder</figcaption>
+<figcaption>Transpiled JS output code is promoted back into the `src` folder.</figcaption>
 </figure>
-</div>
 
 ### Directives and bindings
 

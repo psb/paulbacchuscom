@@ -185,9 +185,21 @@ img {
   border-radius: 3px;
 }
 
+figure {
+  inline-size: fit-content;
+  margin: clamp(2.25rem, 1rem + 3.125vw, 3rem) 0;
+  margin-inline: auto;
+}
+
+figure img {
+  border-radius: 3px 3px 0 0;
+}
+
 figcaption {
-  padding: 1rem 0;
-  font-style: italic;
+  padding: 1rem;
+  contain: inline-size;
+  background-color: var(--color-card-background);
+  border-radius: 0 0 3px 3px;
 }
 
 blockquote {
