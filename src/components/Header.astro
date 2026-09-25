@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import face from "../assets/images/face.png";
 import House from "../assets/icons/house-fill.svg";
 import Article from "../assets/icons/text-align-justify-fill.svg";
 import Desktop from "../assets/icons/desktop-fill.svg";
@@ -6,6 +8,9 @@ import RSS from "../assets/icons/rss-fill.svg";
 ---
 
 <header>
+  <a href="/" aria-label="home">
+    <Image src={face} alt="" layout="constrained" width={50} />
+  </a>
   <nav>
     <a class="no-style" href="/">
       <House height="1.2rem" width="1.2rem" role="img" aria-labelledby="home" />
@@ -39,6 +44,10 @@ import RSS from "../assets/icons/rss-fill.svg";
 <style>
   header {
     padding: 1rem;
+    /* with image of face in header */
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
   }
 
   nav {
