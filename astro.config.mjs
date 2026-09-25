@@ -23,7 +23,6 @@ export default defineConfig({
       ]
     },
   },
-
   fonts: [
     {
       provider: fontProviders.local(),

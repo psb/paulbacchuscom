@@ -11,8 +11,7 @@ interface Props {
 
 const { title, ogImage } = Astro.props;
 const isHome = title === "Home";
-const isNotFound = title === "404";
-const xlFont = title === "Home" || title === "404";
+const fontXL = title === "Home" || title === "404";
 ---
 
 <!doctype html>
@@ -61,13 +60,7 @@ const xlFont = title === "Home" || title === "404";
       <Header />
       <main id="main">
         <article>
-          <h1
-            class:list={[
-              "title",
-              { "xl-font": xlFont },
-              { "not-found": isNotFound },
-            ]}
-          >
+          <h1 class:list={["title", { "font-xl": fontXL }]}>
             {isHome ? "Paul Bacchus" : title}
           </h1>
           <div class="content-wrapper">
@@ -97,8 +90,6 @@ const xlFont = title === "Home" || title === "404";
     overflow: hidden;
   }
 
-  /* Media sizes from Tailwind: https://tailwindcss.com/docs/responsive-design */
-  /* Styles for mobile: (<40rem <640px) */
   body {
     /* 1024px */
     --max-width: 64rem;
@@ -160,7 +151,7 @@ const xlFont = title === "Home" || title === "404";
     font-weight: 900;
     padding: 1rem;
   }
-  .title.xl-font {
+  .title.font-xl {
     font-size: clamp(3rem, -3.667rem + 16.667vw, 7rem);
   }
   .title.not-found {
@@ -212,37 +203,5 @@ const xlFont = title === "Home" || title === "404";
   }
   .col-right-footer {
     grid-area: col-right-footer;
-  }
-
-  /* Styles for sm: >=40rem (640px) */
-  @media (width >= 40rem) {
-    /* .title {
-      font-size: 4rem;
-    } */
-  }
-
-  /* Styles for md: >=48rem (768px) */
-  @media (width >= 48rem) {
-    /* .title {
-      font-size: 4.5rem;
-    } */
-  }
-
-  /* Styles for lg: >=64rem (1024px) */
-  @media (width >= 64rem) {
-    /* .title {
-      font-size: 5rem;
-    }
-    .title.home {
-      font-size: 7rem;
-    } */
-  }
-
-  /* Styles for xl: >=80rem (1280px) */
-  @media (width >= 80rem) {
-  }
-
-  /* Styles for 2xl: >=96rem (1536px) */
-  @media (width >= 96rem) {
   }
 </style>
