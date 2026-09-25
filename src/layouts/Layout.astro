@@ -6,9 +6,10 @@ import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
+  ogImage: string;
 }
 
-const { title } = Astro.props;
+const { title, ogImage } = Astro.props;
 const isHome = title === "Home";
 const isNotFound = title === "404";
 const xlFont = title === "Home" || title === "404";
@@ -22,12 +23,28 @@ const xlFont = title === "Home" || title === "404";
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://www.paulbacchus.com" />
+    <!-- favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Paul Bacchus" />
     <link rel="manifest" href="/site.webmanifest" />
+    <!-- og image -->
+    <meta
+      property="og:image"
+      content=`https://www.paulbacchus.com/${ogImage}`
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta
+      property="og:image:secure_url"
+      content=`https://www.paulbacchus.com/${ogImage}`
+    />
+    <meta property="og:image:alt" content=`${title}` />
+    <!--  -->
     <title>{title} | Paul Bacchus</title>
   </head>
   <body>

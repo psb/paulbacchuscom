@@ -3,9 +3,10 @@ import { Image } from "astro:assets";
 import jtConfused from "../assets/images/jt-confused.png";
 import Layout from "../layouts/Layout.astro";
 const title = "404";
+const ogImage = "00-homepage";
 ---
 
-<Layout title={title}>
+<Layout title={title} ogImage={ogImage}>
   <div>
     <Image src={jtConfused} alt="" layout="constrained" width={700} />
     <h2>Page Not Found</h2>

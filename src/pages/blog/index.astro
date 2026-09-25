@@ -2,9 +2,10 @@
 import BlogPostsList from "../../components/BlogPostsList.astro";
 import Layout from "../../layouts/Layout.astro";
 const title = "Blog";
+const ogImage = "00-homepage";
 ---
 
-<Layout title={title}>
+<Layout title={title} ogImage={ogImage}>
   <h2>All Posts</h2>
   <BlogPostsList limit={5} />
 </Layout>

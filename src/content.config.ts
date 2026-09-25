@@ -13,7 +13,8 @@ const blogPosts = defineCollection({
     month: z.string(),
     year: z.number(),
     coverImage: image(),
-    coverImageAlt: z.string()
+    coverImageAlt: z.string(),
+    ogImage: z.string()
   })
 });
 
