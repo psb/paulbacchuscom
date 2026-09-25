@@ -107,7 +107,7 @@ export { make };
 
 But `next build` will give a type error:
 
-```shell
+```text
 Type error: Page "src/app/dogs/page.js" does not match the required types of a Next.js Page.
 "make" is not a valid Page export field.
 ```
@@ -123,7 +123,7 @@ export { $$default, $$default as default };
 
 But still `next build` will give a type error:
 
-```shell
+```text
 Type error: Page "src/app/dogs/page.js" does not match the required types of a Next.js Page.
 "$$default" is not a valid Page export field.
 ```
@@ -159,7 +159,7 @@ export {
 
 Will `next build` let us pass??? No.
 
-```shell
+```text
 Type error: Route "src/app/api/joke/route.js" does not match the required types of a Next.js Route.
 "decodeJokeCount" is not a valid Route export field.
 

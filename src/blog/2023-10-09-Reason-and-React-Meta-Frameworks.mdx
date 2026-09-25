@@ -91,7 +91,7 @@ Promoting the output code also makes it much easier to deploy an application via
 
 If your are only using ReasonReact to create a few components then it is best to promote the output JS of those components back into the `src` folder. For example, if you have an Astro app like:
 
-```
+```text
 /
 ├── _build/
 ├── public/
@@ -119,7 +119,7 @@ If your are only using ReasonReact to create a few components then it is best to
 
 After promoting the output of the `reason_components` folder you will end up with:
 
-```
+```text
 /
 ├── _build/
 ├── public/
@@ -171,7 +171,7 @@ How you promote serverless functions depends on where you are deploying them. If
 
 Expanding on the Astro example above we can add serverless functions:
 
-```
+```text
 /
 ├── _build/
 ├── public/
@@ -204,7 +204,7 @@ A better and cleaner solution is to promote the whole app. What does it mean to 
 
 A typical TypeScript NextJS App Router application will be structured something like:
 
-```
+```text
 ├── README.md
 ├── app/
 │   ├── api/
@@ -229,7 +229,7 @@ A typical TypeScript NextJS App Router application will be structured something 
 
 We can then convert it to a Reason application:
 
-```
+```text
 ├── README.md
 // [!code word:reason_app/:1]
 ├── reason_app/
@@ -274,7 +274,7 @@ We have to rename the `app` folder to `reason_app` because an `app` folder at th
 
 In `./app/dune` we add the NextJS files to the `melange.runtime_deps` stanza:
 
-```
+```ocaml
 (library
  (name app)
  (modes melange)
@@ -290,7 +290,7 @@ In `./app/dune` we add the NextJS files to the `melange.runtime_deps` stanza:
 
 We can then add a `reason_bindings` folder at the root level for any bindings we want, and when we build the app the output in the `_build` folder will be:
 
-```
+```text
 ./_build/default/output/
 ├── reason_app/
 │   ├── api/
@@ -310,7 +310,7 @@ Note the `node_modules` folder. This `node_modules` folder contains the output J
 
 Using dune `directory-targets` (add `(using directory-targets 0.1)` to the `./dune-project` file) we can promote the output JS in the `_build` folder how we like. In `./dune` we can add a rule for the promotion of the output code to the all important `./src` folder, thus creating a typical NextJS application structure that uses `./src/app`:
 
-```
+```ocaml
 (rule
  (alias promote-app)
  (mode
@@ -326,7 +326,7 @@ Using dune `directory-targets` (add `(using directory-targets 0.1)` to the `./du
 
 `alias promote_app` is an alias we can use in our Makefile so that the rule is run after every build. `deps (alias_rec nextjs)` is a dependency on the recursive construction of our main application code which has the alias of `nextjs`. `dir src` sets the target for the promotion of the output JS as `src`. In the action stanza we use bash to copy `output/reason_app` to `src/app`, making it recognisable to NextJS. We also copy `reason_bindings` and the Melange `node_modules` to `src` so that they are at the same directory level as `app`, which is important for maintaining import paths defined in the application when it was built and put into the `build` folder. What we end up with is:
 
-```
+```text
 /
 ├── _build/
 ...
@@ -378,7 +378,7 @@ If you structure your application so that the whole app is going to be promoted 
 
 Dune will allow some special characters in folder names but it does not allow them in file names ([in my limited experience](https://github.com/ocaml/ocaml.org/issues/1635)). Remix uses file name based routing and the file names can have special characters in them, e.g., `concerts.$city.js`. When a file name with special characters in it fails to compile we can use a Dune rule stanza to create an output JS file with special characters in it:
 
-```
+```text
 ; ./src/routes/dune
 
 (library
