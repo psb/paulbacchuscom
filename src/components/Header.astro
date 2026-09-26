@@ -8,7 +8,7 @@ import RSS from "../assets/icons/rss-fill.svg";
 ---
 
 <header>
-  <a href="/" aria-label="home">
+  <a class="face" href="/" aria-label="home">
     <Image src={face} alt="" layout="constrained" width={50} />
   </a>
   <nav>
@@ -50,14 +50,22 @@ import RSS from "../assets/icons/rss-fill.svg";
     justify-content: space-between;
   }
 
+  .face {
+    transform: rotate(-180deg);
+    transition: transform 0.5s ease-in-out;
+  }
+  .face:hover {
+    transform: rotate(0deg);
+  }
+
   nav {
     display: flex;
     /* justify-content: space-between; */
-    justify-content: end;
+    /* justify-content: end; */
     gap: 2rem;
   }
 
-  a {
+  nav a {
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -65,7 +73,7 @@ import RSS from "../assets/icons/rss-fill.svg";
     gap: 0.3rem;
   }
 
-  a:hover span {
+  nav a:hover span {
     text-decoration: underline;
     text-decoration-thickness: var(--link-thickness);
   }
