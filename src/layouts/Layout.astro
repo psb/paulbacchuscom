@@ -3,6 +3,11 @@ import { Font } from "astro:assets";
 import "../styles/main.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import willSmith from "../assets/images/will-smith.png";
+import butterfield from "../assets/images/butterfield-www.png";
+import Play from "../assets/icons/play-fill.svg";
+import ExternalLink from "../assets/icons/arrow-square-out.svg";
 
 interface Props {
   title: string;
@@ -51,9 +56,41 @@ const fontXL = title === "Home" || title === "404";
     <!-- Left column -->
     <div class="col-left" aria-hidden="true">
       <div class="col-left-header"></div>
-      <div class="col-left-title"></div>
-      <div class="col-left-content"></div>
-      <div class="col-left-footer"></div>
+      <div class="col-left-title">
+        <div class="walkers-wrapper">
+          <div class="walkers"></div>
+        </div>
+      </div>
+      <div class="col-left-content">
+        <div class="butterfield">
+          <div class="image-and-button">
+            <Image src={butterfield} alt="" layout="constrained" width={400} />
+            <div class="play-button">
+              <Play
+                height="1.2rem"
+                width="1.2rem"
+                role="img"
+                aria-labelledby="play"
+              />
+              <span id="play">play</span>
+            </div>
+          </div>
+        </div>
+        <div class="trees-wrapper">
+          <div class="palm-trees"></div>
+        </div>
+      </div>
+      <div class="col-left-footer">
+        <a
+          class="butterfield-link"
+          href="https://www.youtube.com/watch?v=cCLn94xi1LQ"
+          target="_blank"
+          rel="noreferrer"
+          rel="noopener"
+          >The Butterfield Diet
+          <ExternalLink height="1rem" width="1rem" />
+        </a>
+      </div>
     </div>
     <!-- Main column for content -->
     <div class="col-center">
@@ -73,9 +110,33 @@ const fontXL = title === "Home" || title === "404";
     <!-- Right column -->
     <div class="col-right" aria-hidden="true">
       <div class="col-right-header"></div>
-      <div class="col-right-title"></div>
-      <div class="col-right-content"></div>
-      <div class="col-right-footer"></div>
+      <div class="col-right-title">
+        <div class="runners-wrapper">
+          <div class="runners"></div>
+        </div>
+      </div>
+      <div class="col-right-content">
+        <div class="willsmith">
+          <a
+            href="https://www.youtube.com/watch?v=3JcmQONgXJM&t=28s"
+            target="_blank"
+            rel="noreferrer"
+            rel="noopener"
+          >
+            <Image src={willSmith} alt="" layout="constrained" width={500} />
+            <br />
+            <ExternalLink width="1rem" height="1rem" />
+          </a>
+        </div>
+        <div class="lotus-wrapper">
+          <div class="lotus-and-wave"></div>
+        </div>
+      </div>
+      <div class="col-right-footer">
+        <div class="phosphor">
+          Icons from <a href="https://phosphoricons.com">Phosphor</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>
@@ -90,6 +151,8 @@ const fontXL = title === "Home" || title === "404";
     overflow: hidden;
   }
 
+  /* Media sizes from Tailwind: https://tailwindcss.com/docs/responsive-design */
+  /* Styles for mobile: (<40rem <640px) */
   body {
     /* 1024px */
     --max-width: 64rem;
@@ -164,33 +227,93 @@ const fontXL = title === "Home" || title === "404";
 
   /* Left column styles */
   .col-left {
-    display: grid;
+    display: none;
     grid-column: 1;
     grid-row: 1/-1;
     grid-template-columns: subgrid;
     grid-template-rows: subgrid;
+    padding: 0 2rem;
   }
   .col-left-header {
     grid-area: col-left-header;
   }
   .col-left-title {
     grid-area: col-left-title;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
   }
   .col-left-content {
     grid-area: col-left-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
   }
   .col-left-footer {
     grid-area: col-left-footer;
+    padding: 1rem;
+  }
+  .col-left-footer > a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .walkers-wrapper {
+    padding-right: 10rem;
+  }
+  .walkers {
+    height: 100px;
+    background-image: url("../assets/images/people-walking.svg");
+    background-size: 150px 150px;
+    background-repeat: repeat;
+  }
+
+  .butterfield {
+    display: flex;
+    align-items: flex-start;
+    grid-row: 1 / 2;
+    align-self: center;
+  }
+
+  .image-and-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotate(-5deg);
+    gap: 1rem;
+  }
+
+  .play-button {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    gap: 0.3rem;
+  }
+
+  .trees-wrapper {
+    padding-right: 10rem;
+  }
+  .palm-trees {
+    height: 105px;
+    background-image: url("../assets/images/palm-trees.svg");
+    background-size: 150px 150px;
+    background-repeat: repeat;
+  }
+
+  .butterfield-link {
+    display: none;
   }
 
   /* Right column styles */
   .col-right {
-    display: grid;
+    display: none;
     grid-column: 3;
     grid-row: 1/-1;
     grid-template-columns: subgrid;
     grid-template-rows: subgrid;
-    padding-left: 2rem;
+    padding: 0 2rem;
   }
   .col-right-header {
     grid-area: col-right-header;
@@ -200,8 +323,81 @@ const fontXL = title === "Home" || title === "404";
   }
   .col-right-content {
     grid-area: col-right-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
   }
   .col-right-footer {
     grid-area: col-right-footer;
+    text-align: right;
+    padding: 1rem;
+  }
+
+  .runners-wrapper {
+    padding-left: 10rem;
+  }
+  .runners {
+    height: 100px;
+    background-image: url("../assets/images/people-running.svg");
+    background-size: 150px 150px;
+    background-repeat: repeat;
+  }
+
+  .willsmith {
+    text-align: right;
+    grid-row: 1 / 2;
+    align-self: center;
+  }
+  .willsmith img {
+    transform: rotate(17deg);
+  }
+  .willsmith > a > svg {
+    transform: rotate(17deg);
+  }
+
+  .lotus-wrapper {
+    padding-left: 10rem;
+  }
+  .lotus-and-wave {
+    height: 105px;
+    background-image: url("../assets/images/lotus-and-wave.svg");
+    background-size: 150px 150px;
+    background-repeat: repeat;
+  }
+
+  .phosphor {
+    display: none;
+  }
+
+  /* Styles for sm: >=40rem (640px) */
+  @media (width >= 40rem) {
+  }
+
+  /* Styles for md: >=48rem (768px) */
+  @media (width >= 48rem) {
+  }
+
+  /* Styles for lg: >=64rem (1024px) */
+  @media (width >= 64rem) {
+  }
+
+  /* Styles for xl: >=80rem (1280px) */
+  @media (width >= 80rem) {
+    .col-left {
+      display: grid;
+    }
+    .col-right {
+      display: grid;
+    }
+  }
+
+  /* Styles for 2xl: >=96rem (1536px) */
+  @media (width >= 96rem) {
+    .phosphor {
+      display: inline-block;
+    }
+    .butterfield-link {
+      display: inline-block;
+    }
   }
 </style>

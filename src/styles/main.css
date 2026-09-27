@@ -2,8 +2,11 @@
 
 :root {
   /* Base colors */
+  /* tailwind cyan-400; #22d3ee */
   --color-cyan: oklch(78.9% 0.154 211.53);
+  /* tailwind fuchia-400; #e879f9 */
   --color-magenta: oklch(74% 0.238 322.16);
+  /* tailwind yellow-400; #facc15 */
   --color-yellow: oklch(85.2% 0.199 91.936);
   --color-black: rgb(0 0 0);
   /* Other colors */
