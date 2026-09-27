@@ -8,8 +8,6 @@ import willSmith from "../assets/images/will-smith.png";
 import butterfield from "../assets/images/butterfield-www.png";
 import Play from "../assets/icons/play-fill.svg";
 import ExternalLink from "../assets/icons/arrow-square-out.svg";
-import walkers from "../assets/images/people-walking.svg";
-import runners from "../assets/images/people-running.svg";
 
 interface Props {
   title: string;
@@ -58,9 +56,7 @@ const fontXL = title === "Home" || title === "404";
     <!-- Left column -->
     <div class="col-left" aria-hidden="true">
       <div class="col-left-header"></div>
-      <div class="col-left-title">
-        <Image src={walkers} alt="" layout="constrained" width={150} />
-      </div>
+      <div class="col-left-title"></div>
       <div class="col-left-content">
         <div class="butterfield">
           <div class="image-and-button">
@@ -76,7 +72,6 @@ const fontXL = title === "Home" || title === "404";
             </div>
           </div>
         </div>
-        <div class="palm-trees"></div>
       </div>
       <div class="col-left-footer">
         <div class="butterfield-link">
@@ -109,9 +104,7 @@ const fontXL = title === "Home" || title === "404";
     <!-- Right column -->
     <div class="col-right" aria-hidden="true">
       <div class="col-right-header"></div>
-      <div class="col-right-title">
-        <Image src={runners} alt="" layout="constrained" width={150} />
-      </div>
+      <div class="col-right-title"></div>
       <div class="col-right-content">
         <div class="willsmith">
           <a
@@ -125,7 +118,14 @@ const fontXL = title === "Home" || title === "404";
             <ExternalLink width="1rem" height="1rem" />
           </a>
         </div>
-        <div class="lotus-and-wave"></div>
+        <div class="dot">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
+            ><rect width="256" height="256" fill="none"></rect><circle
+              cx="128"
+              cy="128"
+              r="104"></circle></svg
+          >
+        </div>
       </div>
       <div class="col-right-footer">
         <div class="phosphor">
@@ -234,9 +234,6 @@ const fontXL = title === "Home" || title === "404";
   }
   .col-left-title {
     grid-area: col-left-title;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
   }
   .col-left-content {
     grid-area: col-left-content;
@@ -276,15 +273,13 @@ const fontXL = title === "Home" || title === "404";
     gap: 0.3rem;
   }
 
-  .palm-trees {
-    height: 105px;
-    background-image: url("../assets/images/palm-trees.svg");
-    background-size: 150px 150px;
-    background-repeat: repeat;
-  }
-
   .butterfield-link {
     display: none;
+  }
+  .butterfield-link > a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   /* Right column styles */
@@ -301,7 +296,6 @@ const fontXL = title === "Home" || title === "404";
   }
   .col-right-title {
     grid-area: col-right-title;
-    text-align: right;
   }
   .col-right-content {
     grid-area: col-right-content;
@@ -330,11 +324,29 @@ const fontXL = title === "Home" || title === "404";
     transform: rotate(17deg);
   }
 
-  .lotus-and-wave {
-    height: 105px;
-    background-image: url("../assets/images/lotus-and-wave.svg");
-    background-size: 150px 150px;
-    background-repeat: repeat;
+  .dot {
+    text-align: right;
+  }
+  .dot > svg {
+    max-width: 32px;
+    animation: colorCycle 5s infinite;
+  }
+  @keyframes colorCycle {
+    0% {
+      fill: oklch(from var(--color-cyan) calc(l + 0.1) c h);
+    }
+    25% {
+      fill: var(--color-magenta);
+    }
+    50% {
+      fill: var(--color-yellow);
+    }
+    75% {
+      fill: var(--color-black);
+    }
+    100% {
+      fill: oklch(from var(--color-cyan) calc(l + 0.1) c h);
+    }
   }
 
   .phosphor {
@@ -354,7 +366,7 @@ const fontXL = title === "Home" || title === "404";
   }
 
   /* Styles for xl: >=80rem (1280px) */
-  @media (width >= 80rem) {
+  @media (width >= 81rem) {
     .col-left {
       display: grid;
     }
