@@ -61,7 +61,7 @@ const fontXL = title === "Home" || title === "404";
         <div class="butterfield">
           <div class="image-and-button">
             <Image src={butterfield} alt="" layout="constrained" width={400} />
-            <div class="play-button">
+            <button class="play-button">
               <Play
                 height="1.2rem"
                 width="1.2rem"
@@ -69,7 +69,7 @@ const fontXL = title === "Home" || title === "404";
                 aria-labelledby="play"
               />
               <span id="play">play</span>
-            </div>
+            </button>
           </div>
         </div>
       </div>
@@ -263,6 +263,13 @@ const fontXL = title === "Home" || title === "404";
     text-transform: uppercase;
     font-weight: 500;
     gap: 0.3rem;
+    /* remove built-in styles */
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
   }
 
   .butterfield-link {
