@@ -118,14 +118,6 @@ const fontXL = title === "Home" || title === "404";
             <ExternalLink width="1rem" height="1rem" />
           </a>
         </div>
-        <div class="dot">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"
-            ><rect width="256" height="256" fill="none"></rect><circle
-              cx="128"
-              cy="128"
-              r="104"></circle></svg
-          >
-        </div>
       </div>
       <div class="col-right-footer">
         <div class="phosphor">
@@ -237,8 +229,9 @@ const fontXL = title === "Home" || title === "404";
   }
   .col-left-content {
     grid-area: col-left-content;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
   }
   .col-left-footer {
     grid-area: col-left-footer;
@@ -251,10 +244,9 @@ const fontXL = title === "Home" || title === "404";
   }
 
   .butterfield {
+    grid-row: 3;
     display: flex;
     align-items: flex-start;
-    flex-grow: 1;
-    align-items: center;
   }
 
   .image-and-button {
@@ -299,8 +291,9 @@ const fontXL = title === "Home" || title === "404";
   }
   .col-right-content {
     grid-area: col-right-content;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
   }
   .col-right-footer {
     grid-area: col-right-footer;
@@ -309,9 +302,8 @@ const fontXL = title === "Home" || title === "404";
   }
 
   .willsmith {
+    grid-row: 2;
     display: flex;
-    flex-grow: 1;
-    align-items: center;
     justify-content: end;
   }
   .willsmith > a {
@@ -322,31 +314,6 @@ const fontXL = title === "Home" || title === "404";
   }
   .willsmith > a > svg {
     transform: rotate(17deg);
-  }
-
-  .dot {
-    text-align: right;
-  }
-  .dot > svg {
-    max-width: 32px;
-    animation: colorCycle 5s infinite;
-  }
-  @keyframes colorCycle {
-    0% {
-      fill: oklch(from var(--color-cyan) calc(l + 0.1) c h);
-    }
-    25% {
-      fill: var(--color-magenta);
-    }
-    50% {
-      fill: var(--color-yellow);
-    }
-    75% {
-      fill: var(--color-black);
-    }
-    100% {
-      fill: oklch(from var(--color-cyan) calc(l + 0.1) c h);
-    }
   }
 
   .phosphor {
