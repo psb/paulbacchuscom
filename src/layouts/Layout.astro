@@ -58,17 +58,18 @@ const fontXL = title === "Home" || title === "404";
       <div class="col-left-header"></div>
       <div class="col-left-title"></div>
       <div class="col-left-content">
+        <audio id="butterfieldAudio" src="/butterfield-pb.mp3"></audio>
         <div class="butterfield">
           <div class="image-and-button">
             <Image src={butterfield} alt="" layout="constrained" width={400} />
-            <button class="play-button">
+            <button id="play-button">
               <Play
                 height="1.2rem"
                 width="1.2rem"
                 role="img"
                 aria-labelledby="play"
               />
-              <span id="play">play</span>
+              <span>play</span>
             </button>
           </div>
         </div>
@@ -257,7 +258,7 @@ const fontXL = title === "Home" || title === "404";
     gap: 1rem;
   }
 
-  .play-button {
+  #play-button {
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -359,3 +360,12 @@ const fontXL = title === "Home" || title === "404";
     }
   }
 </style>
+
+<script>
+  const playButton = document.getElementById("play-button");
+  const audio = document.getElementById("butterfieldAudio") as HTMLAudioElement;
+
+  playButton?.addEventListener("click", () => {
+    audio.play();
+  });
+</script>
