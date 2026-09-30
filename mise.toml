@@ -1,11 +1,13 @@
 [tools]
 node = "latest"
 
-[task.dev]
+[tasks.dev]
 run = "npm dev"
-[task.build]
+alias = "d"
+[tasks.build]
 run = "npm build"
-[task.preview]
+alias = "b"
+[tasks.preview]
 run = "npm preview"
-[task.astro]
+[tasks.astro]
 run = "npm astro"
