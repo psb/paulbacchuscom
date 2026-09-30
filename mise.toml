@@ -1,0 +1,11 @@
+[tools]
+node = "latest"
+
+[task.dev]
+run = "npm dev"
+[task.build]
+run = "npm build"
+[task.preview]
+run = "npm preview"
+[task.astro]
+run = "npm astro"
