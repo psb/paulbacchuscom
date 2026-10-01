@@ -2,12 +2,12 @@
 node = "latest"
 
 [tasks.dev]
-run = "npm dev"
+run = "npm run dev"
 alias = "d"
 [tasks.build]
-run = "npm build"
+run = "npm run build"
 alias = "b"
 [tasks.preview]
-run = "npm preview"
+run = "npm run preview"
 [tasks.astro]
-run = "npm astro"
+run = "npm run astro"
