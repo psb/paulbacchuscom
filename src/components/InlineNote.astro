@@ -1,0 +1,54 @@
+---
+
+---
+
+<inline-note>
+  <span class="outer">
+    <span class="chevron">❱</span>
+    <span class="inner closed">
+      <slot />
+    </span>
+  </span>
+</inline-note>
+
+<style>
+  .outer {
+    color: var(--color-magenta);
+    background-color: var(--color-white);
+    border-radius: 2px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .closed {
+    display: none;
+  }
+</style>
+
+<script>
+  class InlineNote extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      const chevron = this.querySelector(".chevron");
+      const outerSpan = this.querySelector(".outer");
+      const innerSpan = this.querySelector(".inner");
+
+      outerSpan?.addEventListener("click", () => {
+        // open/show inner span and switch chevron
+        if (innerSpan?.classList.contains("closed")) {
+          innerSpan?.classList.remove("closed");
+          chevron!.innerHTML = "❰&nbsp;";
+        } else {
+          innerSpan?.classList.add("closed");
+          chevron!.innerHTML = "❱";
+        }
+      });
+    }
+  }
+  customElements.define("inline-note", InlineNote);
+</script>
