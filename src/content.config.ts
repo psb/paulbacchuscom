@@ -14,7 +14,8 @@ const blogPosts = defineCollection({
     year: z.number(),
     coverImage: image(),
     coverImageAlt: z.string(),
-    ogImage: z.string()
+    ogImage: z.string(),
+    noFontFeatures: z.boolean().optional()
   })
 });
 

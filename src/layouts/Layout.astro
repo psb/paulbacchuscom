@@ -12,9 +12,10 @@ import ExternalLink from "../assets/icons/arrow-square-out.svg";
 interface Props {
   title: string;
   ogImage: string;
+  noFontFeatures: boolean;
 }
 
-const { title, ogImage } = Astro.props;
+const { title, ogImage, noFontFeatures } = Astro.props;
 const isHome = title === "Home";
 const fontXL = title === "Home" || title === "404";
 ---
@@ -92,7 +93,13 @@ const fontXL = title === "Home" || title === "404";
       <Header />
       <main id="main">
         <article>
-          <h1 class:list={["title", { "font-xl": fontXL }]}>
+          <h1
+            class:list={[
+              "title",
+              { "font-xl": fontXL },
+              { "no-font-features": noFontFeatures },
+            ]}
+          >
             {isHome ? "Paul Bacchus" : title}
           </h1>
           <div class="content-wrapper">
