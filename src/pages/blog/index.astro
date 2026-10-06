@@ -3,9 +3,10 @@ import BlogPostsList from "../../components/BlogPostsList.astro";
 import Layout from "../../layouts/Layout.astro";
 const title = "Blog";
 const ogImage = "00-homepage";
+const noFontFeatures = false;
 ---
 
-<Layout title={title} ogImage={ogImage}>
+<Layout title={title} ogImage={ogImage} noFontFeatures={noFontFeatures}>
   <h2>All Posts</h2>
   <BlogPostsList limit={0} />
 </Layout>
