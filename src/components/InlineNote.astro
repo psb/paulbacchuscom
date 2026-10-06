@@ -3,16 +3,16 @@
 ---
 
 <inline-note>
-  <span class="outer">
+  <span id="outer" aria-expanded="false" aria-owns="inner">
     <span class="chevron">❱</span>
-    <span class="inner closed">
+    <span id="inner" class="closed">
       <slot />
     </span>
   </span>
 </inline-note>
 
 <style>
-  .outer {
+  #outer {
     color: var(--color-magenta);
     background-color: var(--color-white);
     border-radius: 2px;
@@ -35,17 +35,19 @@
 
     connectedCallback() {
       const chevron = this.querySelector(".chevron");
-      const outerSpan = this.querySelector(".outer");
-      const innerSpan = this.querySelector(".inner");
+      const outerSpan = this.querySelector("#outer");
+      const innerSpan = this.querySelector("#inner");
 
       outerSpan?.addEventListener("click", () => {
-        // open/show inner span and switch chevron
+        // open/show inner span, switch chevron and toggle aria-expanded
         if (innerSpan?.classList.contains("closed")) {
           innerSpan?.classList.remove("closed");
           chevron!.innerHTML = "❰&nbsp;";
+          outerSpan.setAttribute("aria-expanded", "true");
         } else {
           innerSpan?.classList.add("closed");
           chevron!.innerHTML = "❱";
+          outerSpan.setAttribute("aria-expanded", "false");
         }
       });
     }
