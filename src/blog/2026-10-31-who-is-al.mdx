@@ -12,7 +12,7 @@ ogImage: "2026-10-31-og-image.png"
 noFontFeatures: true
 ---
 import InlineNote from "../components/InlineNote.astro";
-import ExternalLink from "../components/ExternalLink.astro";
+import MarkdownExternalLinkWithIcon from "../components/MarkdownExternalLinkWithIcon.astro";
 import { Image } from "astro:assets";
 import aaron from "../assets/images/2026-10-31/a-a-ron.png";
 
@@ -26,6 +26,8 @@ _I've heard that Al is very intelligent, even super intelligent. Some say that h
 
 <hr/>
 
+Trick! Happy Halloween 🎃. You may have been lured here expecting a deep and philosophical blog post about who is AI, but really it is a post about fonts. Don't click away in fear. Face your fears or die trying 💀.
+
 It is pretty obvious that the above passage is actually talking about AI and not someone named Al. However, many websites (cough, X, cough), and text in general, will use a font that does not sufficiently differtiate between 'I' and 'l', e.g., <span class="no-font-features">'I' and 'l'</span>.
 
 Five years ago <span class="no-font-features">'AI'</span> could easily have meant Al. Today the term 'AI' is everywhere and so the probability of <span class="no-font-features">'AI'</span> meaning AI is much higher than it meaning Al. Yet, there is always the chance that it could mean Al and you would only know that from the context in which it is used and not from the font if the font doesn't differtiate between 'I' and 'l'. <InlineNote>The foolproof way of eliminating confusion between AI and Al would be to use full stops in the abbreviation of A.I., but most well known abbreviations do not have full stops in them.</InlineNote>
@@ -38,5 +40,5 @@ In the grand scheme of things this legibility issue may seem trivial. But as the
 
 <figure>
 <Image src={aaron} alt="a a ron sketch from Key & Peele" layout="constrained" width={750}/>
-<figcaption><ExternalLink url="https://www.youtube.com/watch?v=Dd7FixvoKBw" text="Based on the legendary sketch from Key & Peele."/></figcaption>
+<figcaption><MarkdownExternalLinkWithIcon url="https://www.youtube.com/watch?v=Dd7FixvoKBw" text="Based on the legendary sketch from Key & Peele."/></figcaption>
 </figure>

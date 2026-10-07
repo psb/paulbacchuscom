@@ -11,7 +11,7 @@ coverImageAlt: "Computer says no"
 ogImage: "2023-08-15-og-image.png"
 ---
 import { Image } from "astro:assets";
-import ExternalLink from "../components/ExternalLink.astro";
+import MarkdownExternalLinkWithIcon from "../components/MarkdownExternalLinkWithIcon.astro";
 import buildOutput from "../assets/images/2023-08-15/reason-files-to-js-files.png";
 import dune from "../assets/images/2023-08-15/dune-files-everywhere.webp";
 import gopher from "../assets/images/2023-08-15/gopher.png";
@@ -82,7 +82,7 @@ Dune and the NextJS dev server are completely fine with this application and dir
 <Image src={gopher} alt="" layout="constrained" width={400}/>
 </div>
 
-## <ExternalLink url="https://www.youtube.com/watch?v=x0YGZPycMEU" text="Computer Says No"/>
+## <MarkdownExternalLinkWithIcon url="https://www.youtube.com/watch?v=x0YGZPycMEU" text="Computer Says No"/>
 
 ### `make`
 
