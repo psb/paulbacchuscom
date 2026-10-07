@@ -7,14 +7,15 @@ import { Image } from "astro:assets";
 import willSmith from "../assets/images/will-smith.png";
 import butterfield from "../assets/images/butterfield-www.png";
 import Play from "../assets/icons/play-fill.svg";
-import ExternalLink from "../assets/icons/arrow-square-out.svg";
+import ExternalLinkIcon from "../assets/icons/arrow-square-out.svg";
 
 interface Props {
   title: string;
   ogImage: string;
+  noFontFeatures: boolean;
 }
 
-const { title, ogImage } = Astro.props;
+const { title, ogImage, noFontFeatures } = Astro.props;
 const isHome = title === "Home";
 const fontXL = title === "Home" || title === "404";
 ---
@@ -51,7 +52,7 @@ const fontXL = title === "Home" || title === "404";
     <!--  -->
     <title>{title} | Paul Bacchus</title>
   </head>
-  <body>
+  <body id="body">
     <a href="#main" class="skip">Skip to main content</a>
     <!-- Left column -->
     <div class="col-left" aria-hidden="true">
@@ -80,9 +81,8 @@ const fontXL = title === "Home" || title === "404";
             href="https://www.youtube.com/watch?v=cCLn94xi1LQ"
             target="_blank"
             rel="noreferrer"
-            rel="noopener"
             >The Butterfield Diet
-            <ExternalLink height="1rem" width="1rem" />
+            <ExternalLinkIcon height="1rem" width="1rem" />
           </a>
         </div>
       </div>
@@ -92,7 +92,13 @@ const fontXL = title === "Home" || title === "404";
       <Header />
       <main id="main">
         <article>
-          <h1 class:list={["title", { "font-xl": fontXL }]}>
+          <h1
+            class:list={[
+              "title",
+              { "font-xl": fontXL },
+              { "no-font-features": noFontFeatures },
+            ]}
+          >
             {isHome ? "Paul Bacchus" : title}
           </h1>
           <div class="content-wrapper">
@@ -112,11 +118,10 @@ const fontXL = title === "Home" || title === "404";
             href="https://www.youtube.com/watch?v=3JcmQONgXJM&t=28s"
             target="_blank"
             rel="noreferrer"
-            rel="noopener"
           >
             <Image src={willSmith} alt="" layout="constrained" width={500} />
             <br />
-            <ExternalLink width="1rem" height="1rem" />
+            <ExternalLinkIcon width="1rem" height="1rem" />
           </a>
         </div>
       </div>

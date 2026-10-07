@@ -1,0 +1,56 @@
+---
+
+---
+
+<inline-note>
+  <span id="outer" aria-expanded="false" aria-owns="inner">
+    <span class="chevron">❱</span>
+    <span id="inner" class="closed">
+      <slot />
+    </span>
+  </span>
+</inline-note>
+
+<style>
+  #outer {
+    color: var(--color-magenta);
+    background-color: var(--color-white);
+    border-radius: 2px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .closed {
+    display: none;
+  }
+</style>
+
+<script>
+  class InlineNote extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      const chevron = this.querySelector(".chevron");
+      const outerSpan = this.querySelector("#outer");
+      const innerSpan = this.querySelector("#inner");
+
+      outerSpan?.addEventListener("click", () => {
+        // open/show inner span, switch chevron and toggle aria-expanded
+        if (innerSpan?.classList.contains("closed")) {
+          innerSpan?.classList.remove("closed");
+          chevron!.innerHTML = "❰&nbsp;";
+          outerSpan.setAttribute("aria-expanded", "true");
+        } else {
+          innerSpan?.classList.add("closed");
+          chevron!.innerHTML = "❱";
+          outerSpan.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+  }
+  customElements.define("inline-note", InlineNote);
+</script>
