@@ -16,7 +16,7 @@ import nice from "../assets/images/2023-07-13/nice.png";
 
 One of the ways I like to test a technology is to try and implement something that could be required in a real world app, and authentication is one of those things. I have also been wanting to see how easy it is to use a third-party JS React component with [ReasonReact](https://reasonml.github.io/reason-react/en). So, to kill two birds with one stone I created a simple app that uses the [Auth0](https://auth0.com/) React component. You can view the app [here](https://reason-auth.netlify.app/), and the code is [here](https://github.com/psb/reason-auth).
 
-## Using the `Auth0Provider` component
+## Using the `Auth0Provider` Component
 
 The login for the app is based on the [Auth0 quick start tutorial](https://auth0.com/docs/quickstart/spa/react/interactive) for React, and the first thing we have to do is wrap our `App` in the `Auth0Provider`. In JavaScript we would do `import { Auth0Provider } from '@auth0/auth0-react';` and wrap our `App` component with the imported `Auth0Provider` component, but in ReasonReact we need to write some bindings to the component using [Melange attributes](https://melange.re/v1.0.0/communicate-with-javascript/#list-of-attributes-and-extension-nodes).
 
@@ -50,7 +50,7 @@ In Reason each file is a module, and it is common to have one ReasonReact compon
 </Auth0Provider>
 ```
 
-## Using the `useAuth0()` hook
+## Using the `useAuth0()` Hook
 
 Now that we have wrapped our `App` with the `Auth0Provider` we can start using the `useAuth0()` hook in our components, and to do so we must write some bindings to the hook.
 

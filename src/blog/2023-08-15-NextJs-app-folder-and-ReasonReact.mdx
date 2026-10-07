@@ -1,5 +1,5 @@
 ---
-title: "NextJs app folder and ReasonReact"
+title: "NextJs app Folder and ReasonReact"
 description: "Using NextJS app folder with ReasonReact."
 pubDate: "2023-08-15"
 day: 15
@@ -20,9 +20,9 @@ import outputInSrc from "../assets/images/2023-08-15/output-in-src.webp";
 
 After creating a [demo application](https://github.com/psb/astro-reason) with Astro and ReasonReact I thought I would try and recreate the app using NextJS and the App Router. In the Astro app components were written using ReasonReact and then imported into an Astro file from the output JS files created by Melange. This time I wanted to try and use no JS at all and write the whole thing in Reason. The code can be found [here](https://github.com/psb/nextjs-approuter-reason).
 
-## The Dune way
+## The Dune Way
 
-### The `_build` folder
+### The `_build` Folder
 
 When Dune builds a projects the output is placed into the `_build` directory. For the Astro application mentioned above ReasonReact components were promoted out of the `_build` folder and back into the `src` folder, which made it easier to import the components into `.astro` files. Because NextJS uses folder based routing I wanted to try and keep the directory structure as clean as possible and without promoted folders, thus making the directory structure the same as a regular JavaScript NextJS app.
 
@@ -54,7 +54,7 @@ This effectively replicates the standard app directory structure in the `_build`
 
 To run the app from the root directory the commands in `package.json` have to be updated, e.g., `"cd _build/default/nextjs && next dev"`.
 
-### `dune` files
+### `dune` Files
 
 In the image above you can see that there are a lot of `dune` files. The `dune` files contain stanzas that, among other things, can define libraries, specify what libraries this library relies on, and how the library should be processed. For example, the `dune` file in the `api` folder is:
 
@@ -183,7 +183,7 @@ To stop `next build` from slapping us with type errors we have to wrap the Reaso
 <figcaption>Transpiled JS output code is promoted back into the `src` folder.</figcaption>
 </figure>
 
-### Directives and bindings
+### Directives and Bindings
 
 `"use client"` directive binding:
 

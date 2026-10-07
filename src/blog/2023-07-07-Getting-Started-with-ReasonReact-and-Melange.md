@@ -10,7 +10,7 @@ coverImage: "../assets/images/2023-07-07/2023-07-07-Getting-Started-with-ReasonR
 coverImageAlt: "Reason"
 ogImage: "2023-07-07-og-image.png"
 ---
-## A bit of background
+## A Bit of Background
 
 To quote the official docs:
 
@@ -32,21 +32,21 @@ Melange has reached a [1.0 release](https://anmonteiro.substack.com/p/melange-10
 If you know nothing about OCaml and its ecosystem the [new(ish) docs](https://ocaml.org/docs/up-and-running) are a great place to start. I would then spend some time going over the [Melange docs](https://melange.re/v1.0.0/) which explain how to set everything up and JS interop. If you know JS then the syntax in the [Reason docs](https://ocaml.org/docs/up-and-running) should not be too alien. And if you know React then it should not take long to go over the [ReasonReact docs](https://reasonml.github.io/reason-react/docs/en/installation).
 
 
-## Quick start templates
+## Quick Start Templates
 
 - A template using both OCaml and Reason syntax, ReasonReact and webpack: https://github.com/melange-re/melange-opam-template.
 - A template using both OCaml and Reason syntax, ReasonReact and Vite: https://github.com/pdelacroix/melange-vite-template
 - A template using only Reason syntax, ReasonReact, Tailwind and Vite: https://github.com/psb/melange-opam-template.
 
 
-## Example apps
+## Example Apps
 
 [Here](https://github.com/psb/reason-react-hn-melange) is a Hacker News app that uses ReasonReact and Tailwind. It is a port of the original app that used BuckleScript. A good exercise for the reader would be to update the app to use the official HN API.
 
 Because Melange outputs JS you can sprinkle Reason and ReasonReact into existing JS apps. [Here](https://github.com/psb/astro-reason) is an example [Astro](https://docs.astro.build/) application that uses ReasonReact components and Reason lambda functions on [Netlify](https://www.netlify.com/). I'll admit that it did take a while to figure out how to get everything setup properly so that everything worked together, but now you don't have to 😁. Check out the open and closed issues in the repo to see what kind of problems I was having.
 
 
-## Getting help
+## Getting Help
 
 Hopefully the docs and example apps can get you up and running with Melange, Reason and ReasonReact, but if you need further help then the [Reason Discord channel](https://discord.gg/reasonml) is a great place to get help. I owe thanks to [António Monteiro](https://twitter.com/_anmonteiro), [Javier Chávarri](https://twitter.com/javierwchavarri), [David Sancho](https://twitter.com/davesnx) and [Dimitris Mostrous](https://medium.com/@mostrous) for helping me. Pop in and say hi 👋. There is also the [Reason forum](https://reasonml.chat/).
 
