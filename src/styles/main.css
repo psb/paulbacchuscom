@@ -180,6 +180,8 @@ blockquote {
   margin: 0;
   padding: 0.25rem 2.5rem;
   border-left: 5px solid var(--color-blockquote-border);
+  background-color: var(--color-card-background);
+  border-radius: 2px;
 }
 
 hr {
