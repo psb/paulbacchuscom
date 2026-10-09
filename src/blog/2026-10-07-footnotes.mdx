@@ -1,0 +1,133 @@
+---
+title: "Footnotes on the Web"
+description: "Replacing footnotes and sidenotes with inline notes."
+pubDate: "2026-10-07"
+day: 7
+ordinal: "th"
+month: "October"
+year: 2026
+coverImage: "../assets/images/2026-10-07/2026-10-07-footnotes-cover.jpg"
+coverImageAlt: "Footnote"
+ogImage: "2026-10-07-og-image.png"
+---
+import InlineNote from "../components/InlineNote.astro";
+
+According to [The Free Dictionary](https://www.thefreedictionary.com/footnote), footnotes are:
+
+> 1. A note placed at the bottom of a page of a book or manuscript that comments on or cites a reference for a designated part of the text.
+> 2.  Something related to but of lesser importance than a larger work or occurrence.
+
+Footnotes in books work because they are at the bottom of the page. With books all the reader has to do is glance down to the bottom of the page, read the footnote, and look back up to return to where they left off. The same isn't true for web pages. Footnotes on a web page can be links, pop-ups, or completely replaced with something like sidenotes. Footnotes on a web page can also be affected by UI elements that get in the way. 
+
+## Some Problems With Footnotes on the Web
+
+### Scroll
+
+The most common type of foonote I've come across on the web are links. Often the reader has to click the footnote link, wait for the page to scroll to the footnote at the bottom of the page, read the footnote, then click the return link, wait for the scroll again, then carry on reading the main article. A good footnote link will be a direct and quick jump to the footnote and will not take over the scroll of the page. You might think that scroll is a minor annoyance, but it is one that grows as the article gets longer.
+
+### Superscript
+
+A footnote link should be easy to click, especially on mobile. Superscripting the link makes clicking/tapping it harder. Superscription works in books because there is nothing to click.
+
+### Yo-yo Headers
+
+Yo-yo headers are headers that dissapear when scrolling down a page but then reappear when scrolling up a page. Yo-yo headers are bad enough on their own, but if a site has a return link in the footnote that scrolls the page back up to the footnote link, then this will cause the header to reappear and cover the main article text around the footnote link. Now the reader has to manually scroll the text into view.
+
+### Pop-up Notes
+
+Pop-up notes are footnotes that appear when a user hovers over a footnote link. But hover doesn't work on mobile.
+
+## Tufte
+
+One of the best solutions to footnotes on the web is sidenotes. I don't know if Edward Tufte invented sidenotes, but they are prevelent in his books and can be replicated on the web using [Tufte CSS](https://edwardtufte.github.io/tufte-css). To quote the Tufte CSS web page:
+
+>Sidenotes are like footnotes, except they don't force the reader to jump their eye to the bottom of the page, but instead display off to the side in the margin.
+
+Sidenotes being directly to the right of the text (in the margin) means that the reader only had to glance sideways to read it, which makes its disruption to the reading flow similar to that of a footnote in a book. However, I do have a problem with sidenotes on mobile.
+
+On mobile sidenotes are hidden and the reader has to click the superscripted link (actually a hidden checkbox) to view the sidenote; when clicked, the sidenote then appears under the sentence in which the sidenote link appears. This does work but it is a bit jarring. The sidenote appears in the middle of the paragraph and looks like it has been jammed in there. It's not the end of the world but it does look a bit off. Some people have tried to remedy this by showing the sidenote at the end of the paragraph that contains the sidenote link; but this disrupts the reading flow a bit more, especially if the paragraph is long.
+
+## Inline Notes
+
+If you are like me then you always read the footnotes because you don't want to miss any information, even if it is considered less important than the main text. So my solution to the footnote and sidenote problems is to have the note inline: <InlineNote id="example">This is an inline note.</InlineNote>
+
+Pros of the inline note: no scroll; no superscription and is easy to click; no need to look anywhere else on the page to read the note; easy to notice, but also easy to ignore; easy to hide by clicking anywhere in the note; works exactly the same on mobile and desktop.
+
+Cons of the inline note: unknown (hopefully the chevron indicates that there is something there); requires JavaScript to work (footnote links and sidenotes don't require JS to work).
+
+### Inline Note Web Component
+
+This website is built using [Astro](https://astro.build/), which makes it easy to [create web components](https://docs.astro.build/en/guides/client-side-scripts/#web-components-with-custom-elements), and the inline note is a web component:
+
+```js
+---
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<inline-note aria-expanded="false" aria-owns={id} tabindex="0">
+  <span class="chevron">❱</span>
+  <span id={id} class="inner closed">
+    <slot />
+  </span>
+</inline-note>
+
+<style>
+  inline-note {
+    color: var(--color-magenta);
+    background-color: var(--color-white);
+    border-radius: 2px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px var(--color-magenta);
+    }
+  }
+
+  .closed {
+    display: none;
+  }
+</style>
+
+<script>
+  class InlineNote extends HTMLElement {
+    connectedCallback() {
+      const chevron = this.querySelector(".chevron");
+      const innerSpan = this.querySelector(".inner");
+
+      // open/show inner span, switch chevron and toggle aria-expanded
+      this.addEventListener("click", () => {
+        if (innerSpan?.classList.contains("closed")) {
+          innerSpan?.classList.remove("closed");
+          chevron!.innerHTML = "❰&nbsp;";
+          this.setAttribute("aria-expanded", "true");
+        } else {
+          innerSpan?.classList.add("closed");
+          chevron!.innerHTML = "❱";
+          this.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // handle keyboard expansion/click
+      this.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault(); // prevent space scrolling
+          this.click();
+        }
+      });
+    }
+  }
+
+  customElements.define("inline-note", InlineNote);
+</script>
+```
+
+An `id` is required for the component because it is an open/light web component without a shadow dom to encapsulate the inner `dom`, and is used to ditinguish between multiple copies of the component on the page.
+
+The inline note is a simple solution to the annoyances of footnotes and sidenotes on the web and mobile. Will the inline note catch on? <InlineNote id="who-knows">Who knows?</InlineNote>
