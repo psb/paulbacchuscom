@@ -2,10 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import BlogPostsList from "../components/BlogPostsList.astro";
 const title = "Home";
-const ogImage = "00-homepage";
+const ogImage = "00-homepage-og-image.png";
+const noFontFeatures = false;
 ---
 
-<Layout title={title} ogImage={ogImage}>
+<Layout title={title} ogImage={ogImage} noFontFeatures={noFontFeatures}>
   <section>
     <h2>Blog Posts</h2>
     <!-- <h2>Latest Posts</h2> -->
