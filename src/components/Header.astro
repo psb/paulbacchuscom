@@ -12,19 +12,28 @@ import RSS from "../assets/icons/rss-fill.svg";
     <Image src={face} alt="" layout="constrained" width={50} />
   </a>
   <nav>
-    <a class="no-style" href="/">
-      <House height="1.2rem" width="1.2rem" role="img" aria-labelledby="home" />
-      <span id="home"> home </span>
-    </a>
-    <a class="no-style" href="/blog">
-      <Article
-        height="1.2rem"
-        width="1.2rem"
-        role="img"
-        aria-labelledby="blog"
-      />
-      <span id="blog"> blog </span>
-    </a>
+    <div>
+      <a class="no-style" href="/">
+        <House
+          height="1.2rem"
+          width="1.2rem"
+          role="img"
+          aria-labelledby="home"
+        />
+        <span id="home"> home </span>
+      </a>
+    </div>
+    <div>
+      <a class="no-style" href="/blog">
+        <Article
+          height="1.2rem"
+          width="1.2rem"
+          role="img"
+          aria-labelledby="blog"
+        />
+        <span id="blog"> blog </span>
+      </a>
+    </div>
     <!-- <a class="no-style" href="/projects">
       <Desktop
         height="1.2rem"
@@ -34,10 +43,12 @@ import RSS from "../assets/icons/rss-fill.svg";
       />
       <span id="projects"> projects </span>
     </a> -->
-    <a class="no-style" href="/rss.xml">
-      <RSS height="1.2rem" width="1.2rem" role="img" aria-labelledby="rss" />
-      <span id="rss"> rss </span>
-    </a>
+    <div>
+      <a class="no-style" href="/rss.xml">
+        <RSS height="1.2rem" width="1.2rem" role="img" aria-labelledby="rss" />
+        <span id="rss"> rss </span>
+      </a>
+    </div>
   </nav>
 </header>
 
@@ -60,12 +71,13 @@ import RSS from "../assets/icons/rss-fill.svg";
 
   nav {
     display: flex;
+    align-items: center;
     /* justify-content: space-between; */
     /* justify-content: end; */
     gap: 2rem;
   }
 
-  nav a {
+  nav > div > a {
     display: flex;
     align-items: center;
     text-transform: uppercase;
