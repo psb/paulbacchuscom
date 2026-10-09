@@ -130,17 +130,17 @@ h3 {
   line-height: 1.2;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   text-wrap: balance;
-}
+} */
 
 p {
-  text-wrap: pretty;
+  /* text-wrap: pretty; */
   font-size: clamp(1rem, 0.167rem + 2.083vw, 1.5rem);
 }
 
