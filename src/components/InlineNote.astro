@@ -1,24 +1,30 @@
 ---
+interface Props {
+  id: string;
+}
 
+const { id } = Astro.props;
 ---
 
-<inline-note>
-  <span id="outer" aria-expanded="false" aria-owns="inner">
-    <span class="chevron">❱</span>
-    <span id="inner" class="closed">
-      <slot />
-    </span>
+<inline-note aria-expanded="false" aria-owns={id} tabindex="0">
+  <span class="chevron">❱</span>
+  <span id={id} class="inner closed">
+    <slot />
   </span>
 </inline-note>
 
 <style>
-  #outer {
+  inline-note {
     color: var(--color-magenta);
     background-color: var(--color-white);
     border-radius: 2px;
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 3px var(--color-magenta);
     }
   }
 
@@ -29,28 +35,32 @@
 
 <script>
   class InlineNote extends HTMLElement {
-    constructor() {
-      super();
-    }
-
     connectedCallback() {
       const chevron = this.querySelector(".chevron");
-      const outerSpan = this.querySelector("#outer");
-      const innerSpan = this.querySelector("#inner");
+      const innerSpan = this.querySelector(".inner");
 
-      outerSpan?.addEventListener("click", () => {
-        // open/show inner span, switch chevron and toggle aria-expanded
+      // open/show inner span, switch chevron and toggle aria-expanded
+      this.addEventListener("click", () => {
         if (innerSpan?.classList.contains("closed")) {
           innerSpan?.classList.remove("closed");
           chevron!.innerHTML = "❰&nbsp;";
-          outerSpan.setAttribute("aria-expanded", "true");
+          this.setAttribute("aria-expanded", "true");
         } else {
           innerSpan?.classList.add("closed");
           chevron!.innerHTML = "❱";
-          outerSpan.setAttribute("aria-expanded", "false");
+          this.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // handle keyboard expansion/click
+      this.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault(); // prevent space scrolling
+          this.click();
         }
       });
     }
   }
+
   customElements.define("inline-note", InlineNote);
 </script>
