@@ -6,9 +6,14 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<inline-note aria-expanded="false" aria-owns={id} tabindex="0">
+<inline-note
+  aria-expanded="false"
+  aria-controls={`${id}-inline-note`}
+  tabindex="0"
+  role="button"
+>
   <span class="chevron">❱</span>
-  <span id={id} class="inner closed">
+  <span id={`${id}-inline-note`} class="note-text" hidden>
     <slot />
   </span>
 </inline-note>
@@ -27,26 +32,22 @@ const { id } = Astro.props;
       box-shadow: 0 0 0 3px var(--color-magenta);
     }
   }
-
-  .closed {
-    display: none;
-  }
 </style>
 
 <script>
   class InlineNote extends HTMLElement {
     connectedCallback() {
       const chevron = this.querySelector(".chevron");
-      const innerSpan = this.querySelector(".inner");
+      const noteTextSpan = this.querySelector(".note-text");
 
-      // open/show inner span, switch chevron and toggle aria-expanded
+      // open/show note text span, switch chevron and toggle aria-expanded
       this.addEventListener("click", () => {
-        if (innerSpan?.classList.contains("closed")) {
-          innerSpan?.classList.remove("closed");
+        if (noteTextSpan?.hasAttribute("hidden")) {
+          noteTextSpan.removeAttribute("hidden");
           chevron!.innerHTML = "❰&nbsp;";
           this.setAttribute("aria-expanded", "true");
         } else {
-          innerSpan?.classList.add("closed");
+          noteTextSpan?.setAttribute("hidden", "");
           chevron!.innerHTML = "❱";
           this.setAttribute("aria-expanded", "false");
         }
