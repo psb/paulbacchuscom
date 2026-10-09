@@ -17,6 +17,7 @@
   --color-card-background: oklch(from var(--color-cyan) calc(l - 0.025) c h);
   --color-blockquote-border: oklch(86.5% 0.127 207.078);
   --color-non-pre-code: oklch(from var(--color-cyan) calc(l - 0.025) c h);
+  --color-search-text-current: oklch(from var(--color-yellow) calc(l + 0.4) c h);
   /*  */
   --link-thickness: 2px;
 
@@ -43,6 +44,10 @@ html {
 
 ::selection {
   background-color: var(--color-yellow);
+}
+
+*:focus-visible {
+  box-shadow: 0 0 0 3px var(--color-magenta);
 }
 
 body {
