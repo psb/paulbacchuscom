@@ -17,7 +17,6 @@ interface Props {
 
 const { title, ogImage, noFontFeatures } = Astro.props;
 const isHome = title === "Home";
-const fontXL = title === "Home" || title === "404";
 ---
 
 <!doctype html>
@@ -93,13 +92,7 @@ const fontXL = title === "Home" || title === "404";
       <Header />
       <main id="main">
         <article>
-          <h1
-            class:list={[
-              "title",
-              { "font-xl": fontXL },
-              { "no-font-features": noFontFeatures },
-            ]}
-          >
+          <h1 class:list={["title", { "no-font-features": noFontFeatures }]}>
             {isHome ? "Paul Bacchus" : title}
           </h1>
           <div class="content-wrapper">
@@ -200,19 +193,13 @@ const fontXL = title === "Home" || title === "404";
   }
 
   #main {
-    margin-bottom: 15rem;
+    margin-bottom: 10rem;
   }
 
   .title {
     font-size: clamp(3rem, -0.333rem + 8.333vw, 5rem);
     font-weight: 900;
     padding: 1rem;
-  }
-  /* .title.font-xl {
-    font-size: clamp(3rem, -3.667rem + 16.667vw, 7rem);
-  } */
-  .title.not-found {
-    text-align: center;
   }
 
   .content-wrapper {
