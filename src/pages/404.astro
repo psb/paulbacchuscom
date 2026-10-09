@@ -2,24 +2,19 @@
 import { Image } from "astro:assets";
 import jtConfused from "../assets/images/jt-confused.png";
 import Layout from "../layouts/Layout.astro";
-const title = "404";
-const ogImage = "00-homepage";
+const title = "404. Page Not Found";
+const ogImage = "404-og-image.png";
+const noFontFeatures = false;
 ---
 
-<Layout title={title} ogImage={ogImage}>
+<Layout title={title} ogImage={ogImage} noFontFeatures={noFontFeatures}>
   <div>
     <Image src={jtConfused} alt="" layout="constrained" width={600} />
   </div>
-  <h2>Page Not Found</h2>
 </Layout>
 
 <style>
   div {
     text-align: center;
-  }
-  h2 {
-    font-weight: 800;
-    text-align: right;
-    text-transform: uppercase;
   }
 </style>
