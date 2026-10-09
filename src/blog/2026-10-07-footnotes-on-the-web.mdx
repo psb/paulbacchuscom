@@ -53,7 +53,7 @@ If you are like me then you always read the footnotes because you don't want to 
 
 Pros of the inline note: no scroll; no superscription and is easy to click; no need to look anywhere else on the page to read the note; easy to notice, but also easy to ignore; easy to hide by clicking anywhere in the note; works exactly the same on mobile and desktop.
 
-Cons of the inline note: unknown (hopefully the chevron indicates that there is something there); requires JavaScript to work (footnote links and sidenotes don't require JS to work).
+Cons of the inline note: unknown (hopefully the chevron indicates that there is something there); requires JavaScript to work (footnote links and sidenotes don't require JavaScript to work).
 
 ### Inline Note Web Component
 
@@ -131,4 +131,6 @@ const { id } = Astro.props;
 
 A unique `id` is required for the component because it is an open/light web component without a shadow DOM to encapsulate the inner DOM, and it is used to distinguish between multiple copies of the component on a page for `aria-controls`.
 
-The inline note is a simple solution to the annoyances of footnotes and sidenotes on the web and mobile. Will the inline note catch on? <InlineNote id="who-knows">Who knows?</InlineNote>
+## Conclusion
+
+The inline note is a simple solution to the annoyances of footnotes and sidenotes on the web and mobile. Although it requires JavaScript to work and footnotes and sidenotes do not, the vast majority of people on the web will have JavaScript enabled. Will the inline note catch on? <InlineNote id="who-knows">Who knows?</InlineNote>
