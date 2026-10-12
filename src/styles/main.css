@@ -148,7 +148,8 @@ li {
   font-size: clamp(1rem, 0.167rem + 2.083vw, 1.5rem);
 }
 
-img {
+img,
+video {
   max-width: 100%;
   height: auto;
 }

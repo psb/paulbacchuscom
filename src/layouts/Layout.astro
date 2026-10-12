@@ -141,15 +141,11 @@ const isHome = title === "Home";
   /* Media sizes from Tailwind: https://tailwindcss.com/docs/responsive-design */
   /* Styles for mobile: (<40rem <640px) */
   body {
-    /* 1024px */
-    --max-width: 64rem;
-    /* 1280px */
-    /* --max-width: 80rem; */
     height: 100vh;
     height: 100svh;
 
     display: grid;
-    grid-template-columns: 1fr min(100vw, var(--max-width)) 1fr;
+    grid-template-columns: 1fr 100% 1fr;
     grid-template-rows: auto auto 1fr auto;
     grid-template-areas:
       "col-left-header col-center-header col-right-header"
@@ -331,6 +327,9 @@ const isHome = title === "Home";
 
   /* Styles for lg: >=64rem (1024px) */
   @media (width >= 64rem) {
+    body {
+      grid-template-columns: 1fr 64rem 1fr;
+    }
   }
 
   /* Styles for xl: >=80rem (1280px) */
