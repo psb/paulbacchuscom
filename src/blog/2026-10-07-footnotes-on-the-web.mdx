@@ -11,6 +11,9 @@ coverImageAlt: "Footnote"
 ogImage: "2026-10-07-og-image.png"
 ---
 import InlineNote from "../components/InlineNote.astro";
+import { Image } from "astro:assets";
+import sidenotes from "../assets/images/2026-10-07/sidenotes.png";
+
 
 According to [The Free Dictionary](https://www.thefreedictionary.com/footnote), footnotes are:
 
@@ -45,15 +48,43 @@ One of the best solutions to footnotes on the web is sidenotes. I don't know if 
 
 Sidenotes being directly to the right of the text (in the margin) means that the reader only had to glance sideways to read it, which makes its disruption to the reading flow similar to that of a footnote in a book. However, I do have a problem with sidenotes on mobile.
 
-On mobile, sidenotes are hidden and the reader has to click the superscripted link (actually a hidden checkbox) to view the sidenote; when clicked, the sidenote then appears under the sentence in which the sidenote link appears. This does work but it is a bit jarring. The sidenote appears in the middle of the paragraph and looks like it has been jammed in there. It's not the end of the world but it does look a bit off. Some people have tried to remedy this by showing the sidenote at the end of the paragraph that contains the sidenote link; but this disrupts the reading flow a bit more, especially if the paragraph is long.
+On mobile, sidenotes are hidden and the reader has to click the superscripted link (actually a hidden checkbox) to view the sidenote; when clicked, the sidenote then appears under the sentence in which the sidenote link appears. This does work but it is a bit jarring. The sidenote appears in the middle of the paragraph and looks like it has been jammed in there --- it's not the end of the world but it does look a bit off. Some people have tried to remedy this by showing the sidenote at the end of the paragraph that contains the sidenote link, but this disrupts the reading flow a bit more, especially if the paragraph is long.
+
+<figure>
+<Image src={sidenotes} alt="sidenote in margin versus in the paragraph" layout="constrained" width={900}/>
+<figcaption>Left: Sidenote in margin on desktop. Right: Sidenote jammed in the middle of a paragraph on mobile.</figcaption>
+</figure>
 
 ## Inline Notes
 
 If you are like me then you always read the footnotes because you don't want to miss any information, even if it is considered less important than the main text. So my solution to the footnote and sidenote problems is to have the note inline: <InlineNote id="example">This is an inline note.</InlineNote>
 
-Pros of the inline note: no scroll; no superscription and is easy to click; no need to look anywhere else on the page to read the note; easy to notice, but also easy to ignore; easy to hide by clicking anywhere in the note; works exactly the same on mobile and desktop.
+Pros of the inline note: 
+- no scroll;
+- no superscription and is easy to click;
+- no need to look anywhere else on the page to read the note;
+- easy to notice, but also easy to ignore;
+- easy to hide by clicking anywhere in the note; 
+- works exactly the same on mobile and desktop.
 
-Cons of the inline note: unknown (hopefully the chevron indicates that there is something there); requires JavaScript to work (footnote links and sidenotes don't require JavaScript to work).
+Cons of the inline note:
+- unknown (hopefully the chevron indicates that there is something there);
+- requires JavaScript to work (footnote links and sidenotes don't require JavaScript to work);
+- text reflow if `text-wrap: pretty` is used on paragraphs containing inline notes.
+
+### Text Reflow
+
+If `text-wrap: pretty` is used on a paragraph (and the browser supports it) that contains an inline note, opening the inline note will cause the text in that paragraph to reflow due to the 'pretty' algorithm recalculating the text wrap layout of the paragraph.
+
+<figure>
+<video controls>
+<source src="/videos/text-wrap-pretty-reflow.mp4" type="video/mp4" />
+</video>
+<video controls>
+<source src="/videos/text-wrap-pretty-no-reflow.mp4" type="video/mp4" />
+</video>
+<figcaption>Top: `text-wrap: pretty` and text reflow when opening an inline note. Bottom: no text reflow when opening an inline note when `text-wrap: pretty` is not used.</figcaption>
+</figure>
 
 ### Inline Note Web Component
 
@@ -83,8 +114,9 @@ const { id } = Astro.props;
 <style>
   inline-note {
     color: var(--color-magenta);
-    background-color: var(--color-white);
+    background-color: var(--color-magenta-dark);
     border-radius: 2px;
+    padding: 0 2px;
 
     &:hover {
       cursor: pointer;
@@ -129,4 +161,4 @@ A unique `id` is required for the component because it is an open/light web comp
 
 ## Conclusion
 
-The inline note is a simple solution to the annoyances of footnotes and sidenotes, which works equally well on the web and mobile. Although it requires JavaScript to work, and footnotes and sidenotes do not, the vast majority of people on the web will have JavaScript enabled. Will the inline note catch on? <InlineNote id="who-knows">Who knows?</InlineNote>
+The inline note is a simple solution to the annoyances of footnotes and sidenotes, which works equally well on the web and mobile. Although it requires JavaScript to work, and footnotes and sidenotes do not, the vast majority of people on the web will have JavaScript enabled. Personally, I don't like or use `text-wrap: pretty` and so the reflow issue won't affect this site. Will the inline note catch on? <InlineNote id="who-knows">Who knows?</InlineNote>
