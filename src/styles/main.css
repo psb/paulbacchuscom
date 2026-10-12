@@ -6,6 +6,8 @@
   --color-cyan: oklch(78.9% 0.154 211.53);
   /* tailwind fuchia-400; #e879f9 */
   --color-magenta: oklch(74% 0.238 322.16);
+  /* tailwind fuchia-950; #4a044e */
+  --color-magenta-dark: oklch(29.3% 0.136 325.661);
   /* tailwind yellow-400; #facc15 */
   --color-yellow: oklch(85.2% 0.199 91.936);
   --color-black: rgb(0 0 0);
