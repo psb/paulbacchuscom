@@ -13,6 +13,8 @@ ogImage: "2026-10-07-og-image.png"
 import InlineNote from "../components/InlineNote.astro";
 import { Image } from "astro:assets";
 import sidenotes from "../assets/images/2026-10-07/sidenotes.png";
+import reflow from "../assets/images/2026-10-07/text-wrap-pretty-reflow.mp4";
+import noReflow from "../assets/images/2026-10-07/text-wrap-pretty-no-reflow.mp4";
 
 
 According to [The Free Dictionary](https://www.thefreedictionary.com/footnote), footnotes are:
@@ -78,10 +80,10 @@ If `text-wrap: pretty` is used on a paragraph (and the browser supports it) that
 
 <figure>
 <video controls>
-<source src="/videos/text-wrap-pretty-reflow.mp4" type="video/mp4" />
+<source src={reflow} type="video/mp4" />
 </video>
 <video controls>
-<source src="/videos/text-wrap-pretty-no-reflow.mp4" type="video/mp4" />
+<source src={noReflow} type="video/mp4" />
 </video>
 <figcaption>Top: `text-wrap: pretty` and text reflow when opening the inline note. Bottom: `text-wrap: pretty` is not used and so there is no text reflow when opening the inline note.</figcaption>
 </figure>
