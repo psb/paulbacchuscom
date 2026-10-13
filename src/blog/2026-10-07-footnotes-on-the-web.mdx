@@ -52,7 +52,7 @@ On mobile, sidenotes are hidden and the reader has to click the superscripted li
 
 <figure>
 <Image src={sidenotes} alt="sidenote in margin versus in the paragraph" layout="constrained" width={900}/>
-<figcaption>Left: Sidenote in margin on desktop. Right: Sidenote jammed in the middle of a paragraph on mobile.</figcaption>
+<figcaption>Left: Sidenote in the margin on desktop. Right: Sidenote jammed in the middle of a paragraph on mobile.</figcaption>
 </figure>
 
 ## Inline Notes
@@ -83,7 +83,7 @@ If `text-wrap: pretty` is used on a paragraph (and the browser supports it) that
 <video controls>
 <source src="/videos/text-wrap-pretty-no-reflow.mp4" type="video/mp4" />
 </video>
-<figcaption>Top: `text-wrap: pretty` and text reflow when opening an inline note. Bottom: no text reflow when opening an inline note when `text-wrap: pretty` is not used.</figcaption>
+<figcaption>Top: `text-wrap: pretty` and text reflow when opening the inline note. Bottom: `text-wrap: pretty` is not used and so there is no text reflow when opening the inline note.</figcaption>
 </figure>
 
 ### Inline Note Web Component
@@ -161,4 +161,4 @@ A unique `id` is required for the component because it is an open/light web comp
 
 ## Conclusion
 
-The inline note is a simple solution to the annoyances of footnotes and sidenotes, which works equally well on the web and mobile. Although it requires JavaScript to work, and footnotes and sidenotes do not, the vast majority of people on the web will have JavaScript enabled. Personally, I don't like or use `text-wrap: pretty` and so the reflow issue won't affect this site. Will the inline note catch on? <InlineNote id="who-knows">Who knows?</InlineNote>
+The inline note is a simple solution to the annoyances of footnotes and sidenotes, which works equally well on the web and on mobile. Although it requires JavaScript to work, and footnotes and sidenotes do not, the vast majority of people on the web will have JavaScript enabled. Personally, I don't like or use `text-wrap: pretty` and so the reflow issue won't affect this site. Will the inline note catch on? <InlineNote id="who-knows">Who knows?</InlineNote>
