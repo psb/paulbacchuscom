@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import willSmith from "../assets/images/will-smith.png";
 import butterfield from "../assets/images/butterfield-www.png";
+import butterfieldAudio from "../assets/butterfield-pb.mp3";
 import Play from "../assets/icons/play-fill.svg";
 import ExternalLinkIcon from "../assets/icons/arrow-square-out.svg";
 
@@ -59,7 +60,7 @@ const isHome = title === "Home";
       <div class="col-left-header"></div>
       <div class="col-left-title"></div>
       <div class="col-left-content">
-        <audio id="butterfieldAudio" src="/butterfield-pb.mp3"></audio>
+        <audio id="butterfieldAudio" src={butterfieldAudio}></audio>
         <div class="butterfield">
           <div class="image-and-button">
             <Image src={butterfield} alt="" layout="constrained" width={400} />
