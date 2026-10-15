@@ -9,6 +9,7 @@ year: 2023
 coverImage: "../assets/images/2023-07-07/2023-07-07-Getting-Started-with-ReasonReact-and-Melange.webp"
 coverImageAlt: "Reason"
 ogImage: "2023-07-07-og-image.png"
+ogType: "article"
 ---
 ## A Bit of Background
 

@@ -15,6 +15,7 @@ const blogPosts = defineCollection({
     coverImage: image(),
     coverImageAlt: z.string(),
     ogImage: z.string(),
+    ogType: z.union([z.literal("article"), z.literal("website")]),
     noFontFeatures: z.boolean().optional()
   })
 });

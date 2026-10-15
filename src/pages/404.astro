@@ -2,10 +2,10 @@
 import { Image } from "astro:assets";
 import jtConfused from "../assets/images/jt-confused.png";
 import Layout from "../layouts/Layout.astro";
-import { decode, describe } from "astro:schema";
 const title = "404. Page Not Found";
 const description = "404. Page Not Found";
 const ogImage = "404-og-image.png";
+const ogType = "website";
 const noFontFeatures = false;
 ---
 
@@ -13,6 +13,7 @@ const noFontFeatures = false;
   title={title}
   description={description}
   ogImage={ogImage}
+  ogType={ogType}
   noFontFeatures={noFontFeatures}
 >
   <div>

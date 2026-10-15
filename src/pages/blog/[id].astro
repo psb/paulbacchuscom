@@ -17,6 +17,7 @@ import Layout from "../../layouts/Layout.astro";
 const title = post.data.title;
 const description = post.data.description;
 const ogImage = post.data.ogImage;
+const ogType = post.data.ogType;
 const noFontFeatures = post.data.noFontFeatures ?? false;
 ---
 
@@ -24,6 +25,7 @@ const noFontFeatures = post.data.noFontFeatures ?? false;
   title={title}
   description={description}
   ogImage={ogImage}
+  ogType={ogType}
   noFontFeatures={noFontFeatures}
 >
   <Image

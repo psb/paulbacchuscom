@@ -13,11 +13,12 @@ import ExternalLinkIcon from "../assets/icons/arrow-square-out.svg";
 interface Props {
   title: string;
   description: string;
+  ogType: "article" | "website";
   ogImage: string;
   noFontFeatures: boolean;
 }
 
-const { title, description, ogImage, noFontFeatures } = Astro.props;
+const { title, description, ogType, ogImage, noFontFeatures } = Astro.props;
 const isHome = title === "Home";
 ---
 
@@ -40,7 +41,7 @@ const isHome = title === "Home";
     <meta name="apple-mobile-web-app-title" content="Paul Bacchus" />
     <link rel="manifest" href="/site.webmanifest" />
     <!-- og -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Paul Bacchus" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content=`${title}` />
