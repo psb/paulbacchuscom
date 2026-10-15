@@ -15,11 +15,17 @@ const { Content } = await render(post);
 
 import Layout from "../../layouts/Layout.astro";
 const title = post.data.title;
+const description = post.data.description;
 const ogImage = post.data.ogImage;
 const noFontFeatures = post.data.noFontFeatures ?? false;
 ---
 
-<Layout title={title} ogImage={ogImage} noFontFeatures={noFontFeatures}>
+<Layout
+  title={title}
+  description={description}
+  ogImage={ogImage}
+  noFontFeatures={noFontFeatures}
+>
   <Image
     src={post.data.coverImage}
     alt={post.data.coverImageAlt}
